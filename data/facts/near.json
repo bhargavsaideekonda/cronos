@@ -1,0 +1,44 @@
+[
+  {
+    "id": "nr-orbit",
+    "text": "NEAR Shoemaker became the first spacecraft to orbit an asteroid when it entered orbit around 433 Eros on February 14, 2000.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/near-shoemaker/",
+    "status": "verified"
+  },
+  {
+    "id": "nr-landing",
+    "text": "Though not designed as a lander, NEAR executed a gentle touchdown on the surface of Eros on February 12, 2001.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/near-shoemaker/",
+    "status": "verified"
+  },
+  {
+    "id": "nr-last-data",
+    "text": "NEAR operated on the asteroid's surface, transmitting gamma-ray spectrometer data until February 28, 2001.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/near-shoemaker/",
+    "status": "verified"
+  },
+  {
+    "id": "nr-attempt",
+    "text": "A final listening pass on December 10, 2002 attempted to contact the probe, but no signal was detected.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/near-shoemaker/",
+    "status": "verified"
+  },
+  {
+    "id": "nr-cold",
+    "text": "NASA concluded that the extreme cold of deep space on the asteroid surface (-150°C) eventually ended the spacecraft's operational life.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/near-shoemaker/",
+    "status": "verified"
+  },
+  {
+    "id": "nr-images",
+    "text": "During its mission NEAR returned more than 160,000 images of asteroid Eros.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/near-shoemaker/",
+    "status": "verified"
+  }
+]

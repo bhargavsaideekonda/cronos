@@ -1,0 +1,122 @@
+{
+  "id": "eagle",
+  "order": 3,
+  "era": "moon",
+  "scene": "eagle",
+  "name": "Apollo 11 Eagle",
+  "built": true,
+  "intro_fact": "ea-landing",
+  "hotspots": [
+    {
+      "id": "craft",
+      "label": "Inspect Lunar Module Eagle",
+      "x": 50,
+      "y": 50,
+      "fact": "ea-landing"
+    },
+    {
+      "id": "boulders",
+      "label": "Scan the boulder crater",
+      "x": 72,
+      "y": 70,
+      "fact": "ea-boulders"
+    },
+    {
+      "id": "plaque",
+      "label": "Read the commemorative plaque",
+      "x": 38,
+      "y": 68,
+      "fact": "ea-plaque"
+    }
+  ],
+  "parts": [
+    {
+      "id": "ascent",
+      "name": "Ascent stage",
+      "role": "Crew cabin and ascent engine that returned the crew to orbit",
+      "snap": "Ascent stage fitted. The habitat for Tranquility Base.",
+      "fact": "ea-liftoff"
+    },
+    {
+      "id": "descent",
+      "name": "Descent stage",
+      "role": "Octagonal structure housing the throttleable descent engine",
+      "snap": "Descent stage locked in place.",
+      "fact": "ea-descent-stage"
+    },
+    {
+      "id": "legs",
+      "name": "Landing legs",
+      "role": "Four deployable truss legs with crushable honeycomb footpads",
+      "snap": "Landing gear deployed."
+    },
+    {
+      "id": "ladder",
+      "name": "Ladder",
+      "role": "Attached to the forward leg for egress onto the lunar surface",
+      "snap": "Ladder affixed to the forward strut."
+    },
+    {
+      "id": "antenna",
+      "name": "S-band antenna",
+      "role": "Steerable parabolic dish for communications and television back to Earth",
+      "snap": "S-band steerable antenna aligned."
+    },
+    {
+      "id": "plaque",
+      "name": "Commemorative plaque",
+      "role": "Stainless steel plaque mounted between the ladder rungs",
+      "snap": "Plaque mounted: 'We came in peace for all mankind.'",
+      "fact": "ea-plaque"
+    }
+  ],
+  "challenge": {
+    "id": "boulder-field",
+    "title": "Steer past the boulder field",
+    "intro": "The computer is heading straight for a boulder-strewn crater. Steer horizontally to find a smooth clearing before fuel runs out.",
+    "hint": "Use arrow keys or buttons to navigate left or right towards the green clear zone."
+  },
+  "vault": [
+    {
+      "title": "Tranquility Base",
+      "fact": "ea-landing",
+      "image": null
+    },
+    {
+      "title": "Manual control over boulders",
+      "fact": "ea-boulders",
+      "image": null
+    },
+    {
+      "title": "For all mankind",
+      "fact": "ea-plaque",
+      "image": null
+    },
+    {
+      "title": "Ascent to orbit",
+      "fact": "ea-liftoff",
+      "image": null
+    }
+  ],
+  "signal": [
+    {
+      "kind": "Last contact",
+      "fact": "ea-liftoff"
+    },
+    {
+      "kind": "Loss of power",
+      "fact": "ea-descent-stage"
+    },
+    {
+      "kind": "Official end of mission",
+      "fact": "ea-ascent-fate"
+    }
+  ],
+  "signal_note": "Eagle's descent stage still rests at Tranquility Base; the ascent stage was discarded after crew transfer.",
+  "ending": "Tranquility Base marked humanity's first footsteps on another celestial body.",
+  "debrief_facts": [
+    "ea-landing",
+    "ea-surface",
+    "ea-liftoff"
+  ]
+}

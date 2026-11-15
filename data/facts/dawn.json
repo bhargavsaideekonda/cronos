@@ -1,0 +1,44 @@
+[
+  {
+    "id": "dw-launch",
+    "text": "Dawn launched in September 2007 on a mission to explore two protoplanets in the asteroid belt: Vesta and Ceres.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/dawn/",
+    "status": "verified"
+  },
+  {
+    "id": "dw-vesta",
+    "text": "Dawn entered orbit around giant asteroid Vesta on July 16, 2011, mapping its battered surface for 14 months.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/dawn/",
+    "status": "verified"
+  },
+  {
+    "id": "dw-ceres",
+    "text": "Dawn entered orbit around dwarf planet Ceres on March 6, 2015, becoming the first spacecraft to orbit two separate extraterrestrial destinations.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/dawn/",
+    "status": "verified"
+  },
+  {
+    "id": "dw-spots",
+    "text": "Dawn discovered bright deposits of sodium carbonate in Ceres' Occator Crater, evidence of recent subsurface brine activity.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/dawn/",
+    "status": "verified"
+  },
+  {
+    "id": "dw-hydrazine",
+    "text": "NASA announced on November 1, 2018 that Dawn had depleted its hydrazine attitude-control fuel, ending its communications with Earth.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/dawn/",
+    "status": "verified"
+  },
+  {
+    "id": "dw-orbit",
+    "text": "Dawn remains in a stable uncontrolled orbit around Ceres, where planetary protection rules ensure it will not crash for decades.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/dawn/",
+    "status": "verified"
+  }
+]

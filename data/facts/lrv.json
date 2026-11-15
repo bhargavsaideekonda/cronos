@@ -1,0 +1,44 @@
+[
+  {
+    "id": "lrv-missions",
+    "text": "The Lunar Roving Vehicle was driven on Apollo 15, 16, and 17, expanding lunar exploration range.",
+    "source": "NASA History",
+    "source_url": "https://www.nasa.gov/history/alsj/lrv.html",
+    "status": "verified"
+  },
+  {
+    "id": "lrv-first",
+    "text": "The first lunar roving drive took place on July 31, 1971 during Apollo 15 at Hadley Rille.",
+    "source": "NASA History",
+    "source_url": "https://www.nasa.gov/history/alsj/lrv.html",
+    "status": "verified"
+  },
+  {
+    "id": "lrv-speed",
+    "text": "Designed for a top speed of about 8 mph (13 km/h), Eugene Cernan reached approximately 11.2 mph (18 km/h) on Apollo 17.",
+    "source": "NASA History",
+    "source_url": "https://www.nasa.gov/history/alsj/lrv.html",
+    "status": "verified"
+  },
+  {
+    "id": "lrv-walkback",
+    "text": "Astronaut traverses were strictly constrained by the 'walk-back limit'—the distance the crew could walk back to the Lunar Module if the rover failed.",
+    "source": "NASA History",
+    "source_url": "https://www.nasa.gov/history/alsj/lrv.html",
+    "status": "verified"
+  },
+  {
+    "id": "lrv-power",
+    "text": "The LRV was battery-electric, powered by two 36-volt non-rechargeable silver-zinc potassium hydroxide batteries.",
+    "source": "NASA History",
+    "source_url": "https://www.nasa.gov/history/alsj/lrv.html",
+    "status": "verified"
+  },
+  {
+    "id": "lrv-left",
+    "text": "All three Lunar Roving Vehicles remain parked on the Moon where their missions ended.",
+    "source": "NASA History",
+    "source_url": "https://www.nasa.gov/history/alsj/lrv.html",
+    "status": "verified"
+  }
+]

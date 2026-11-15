@@ -1,0 +1,121 @@
+{
+  "id": "dawn",
+  "order": 9,
+  "era": "ast",
+  "scene": "dawn",
+  "name": "Dawn",
+  "built": true,
+  "intro_fact": "dw-launch",
+  "hotspots": [
+    {
+      "id": "craft",
+      "label": "Inspect Dawn and ion engine",
+      "x": 50,
+      "y": 55,
+      "fact": "dw-launch"
+    },
+    {
+      "id": "ceres",
+      "label": "Observe dwarf planet Ceres",
+      "x": 75,
+      "y": 45,
+      "fact": "dw-ceres"
+    },
+    {
+      "id": "spots",
+      "label": "Investigate Occator bright spots",
+      "x": 68,
+      "y": 70,
+      "fact": "dw-spots"
+    }
+  ],
+  "parts": [
+    {
+      "id": "arrays",
+      "name": "Two solar arrays",
+      "role": "Huge dual solar array wings spanning nearly 20 meters tip-to-tip",
+      "snap": "Twin solar array wings unfurled."
+    },
+    {
+      "id": "body",
+      "name": "Core body",
+      "role": "Graphite composite core housing xenon propellant tanks",
+      "snap": "Spacecraft core structure secured."
+    },
+    {
+      "id": "ion",
+      "name": "Ion engine",
+      "role": "Three electrostatic xenon ion thrusters providing high specific impulse",
+      "snap": "Xenon ion thrusters glowing with gentle blue thrust."
+    },
+    {
+      "id": "antenna",
+      "name": "Dish antenna",
+      "role": "1.52-meter high-gain parabolic antenna for communication across the asteroid belt",
+      "snap": "High-gain dish antenna oriented.",
+      "fact": "dw-hydrazine"
+    },
+    {
+      "id": "camera",
+      "name": "Framing camera",
+      "role": "High-resolution optical framing camera for mapping craters and bright spots",
+      "snap": "Framing camera aperture opened.",
+      "fact": "dw-spots"
+    },
+    {
+      "id": "sensors",
+      "name": "Sensors and trackers",
+      "role": "Star trackers and coarse Sun sensors for precision attitude determination",
+      "snap": "Star trackers locked onto celestial guides."
+    }
+  ],
+  "challenge": {
+    "id": "earth-pointing",
+    "title": "Point the antenna at Earth",
+    "intro": "Hydrazine fuel is nearly depleted. Use short, precise thruster pulses to align the high-gain dish antenna with Earth's tracking beacon before signal fades.",
+    "hint": "Tap Left and Right thruster burst buttons to null out angular drift and align inside the green Earth target cone."
+  },
+  "vault": [
+    {
+      "title": "Vesta and Ceres",
+      "fact": "dw-vesta",
+      "image": null
+    },
+    {
+      "title": "Orbiting two worlds",
+      "fact": "dw-ceres",
+      "image": null
+    },
+    {
+      "title": "Bright spots of Occator",
+      "fact": "dw-spots",
+      "image": null
+    },
+    {
+      "title": "Hydrazine depleted",
+      "fact": "dw-hydrazine",
+      "image": null
+    }
+  ],
+  "signal": [
+    {
+      "kind": "Last contact",
+      "fact": "dw-hydrazine"
+    },
+    {
+      "kind": "Loss of power",
+      "fact": "dw-hydrazine"
+    },
+    {
+      "kind": "Official end of mission",
+      "fact": "dw-orbit"
+    }
+  ],
+  "signal_note": "Dawn missed scheduled communications sessions on Oct 31 and Nov 1, 2018 after expending its last hydrazine fuel.",
+  "ending": "Dawn was the first spacecraft to orbit two separate celestial bodies beyond the Earth-Moon system.",
+  "debrief_facts": [
+    "dw-launch",
+    "dw-ceres",
+    "dw-orbit"
+  ]
+}

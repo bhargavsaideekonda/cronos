@@ -1,0 +1,121 @@
+{
+  "id": "near",
+  "order": 8,
+  "era": "ast",
+  "scene": "near",
+  "name": "NEAR Shoemaker",
+  "built": true,
+  "intro_fact": "nr-orbit",
+  "hotspots": [
+    {
+      "id": "craft",
+      "label": "Inspect NEAR spacecraft body",
+      "x": 50,
+      "y": 55,
+      "fact": "nr-orbit"
+    },
+    {
+      "id": "eros",
+      "label": "Scan asteroid Eros craters",
+      "x": 70,
+      "y": 68,
+      "fact": "nr-images"
+    },
+    {
+      "id": "touchdown",
+      "label": "Inspect the landing site on Eros",
+      "x": 35,
+      "y": 72,
+      "fact": "nr-landing"
+    }
+  ],
+  "parts": [
+    {
+      "id": "body",
+      "name": "Spacecraft body",
+      "role": "Central bus holding hydrazine propellant tanks and electronics",
+      "snap": "Main structural bus positioned."
+    },
+    {
+      "id": "solar",
+      "name": "Two solar panels",
+      "role": "Fixed solar array wings generating 1,800 watts at 1 AU",
+      "snap": "Solar arrays deployed on both sides."
+    },
+    {
+      "id": "dish",
+      "name": "High-gain dish",
+      "role": "1.5-meter parabolic reflector dish for high-speed science data downlink",
+      "snap": "High-gain dish antenna mounted.",
+      "fact": "nr-images"
+    },
+    {
+      "id": "boom",
+      "name": "Magnetometer boom",
+      "role": "Deployable boom isolating magnetic field sensors from spacecraft noise",
+      "snap": "Magnetometer boom extended."
+    },
+    {
+      "id": "bay",
+      "name": "Instrument bay",
+      "role": "Houses the multispectral imager, X-ray spectrometer, and laser rangefinder",
+      "snap": "Science instrument bay loaded."
+    },
+    {
+      "id": "thrusters",
+      "name": "Thrusters",
+      "role": "Attitude control and orbit trim thruster modules",
+      "snap": "Thruster clusters pressurized for orbital maneuvers.",
+      "fact": "nr-landing"
+    }
+  ],
+  "challenge": {
+    "id": "survey-pass",
+    "title": "Survey Eros",
+    "intro": "Asteroid Eros is rotating below. Tap or click the glowing geological targets as they sweep past the instrument field of view before the pass ends.",
+    "hint": "Track the rotation: timing your clicks when targets are nearest gives the highest resolution data."
+  },
+  "vault": [
+    {
+      "title": "Orbiting an asteroid",
+      "fact": "nr-orbit",
+      "image": null
+    },
+    {
+      "title": "160,000 images of Eros",
+      "fact": "nr-images",
+      "image": null
+    },
+    {
+      "title": "First touchdown on an asteroid",
+      "fact": "nr-landing",
+      "image": null
+    },
+    {
+      "title": "Extreme cold on Eros",
+      "fact": "nr-cold",
+      "image": null
+    }
+  ],
+  "signal": [
+    {
+      "kind": "Last contact",
+      "fact": "nr-last-data"
+    },
+    {
+      "kind": "Loss of power",
+      "fact": "nr-cold"
+    },
+    {
+      "kind": "Official end of mission",
+      "fact": "nr-attempt"
+    }
+  ],
+  "signal_note": "A final attempt to listen for NEAR's transmitter on December 10, 2002 yielded silence.",
+  "ending": "NEAR Shoemaker became the first craft to orbit and softly land upon an asteroid.",
+  "debrief_facts": [
+    "nr-orbit",
+    "nr-landing",
+    "nr-last-data"
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "id": "explorer1",
+  "order": 1,
+  "era": "orb",
+  "scene": "orb",
+  "name": "Explorer 1",
+  "built": true,
+  "intro_fact": "e1-launch",
+  "hotspots": [
+    {
+      "id": "craft",
+      "label": "Inspect the satellite body",
+      "x": 50,
+      "y": 55,
+      "fact": "e1-counter"
+    },
+    {
+      "id": "orbit",
+      "label": "Trace the oval orbit",
+      "x": 65,
+      "y": 35,
+      "fact": "e1-orbit"
+    },
+    {
+      "id": "belts",
+      "label": "Investigate the radiation belts",
+      "x": 75,
+      "y": 68,
+      "fact": "e1-belts"
+    }
+  ],
+  "parts": [
+    {
+      "id": "antennas",
+      "name": "Whip antennas",
+      "role": "Send data down to ground tracking stations",
+      "snap": "Whip antennas attached. Ready to beam data home."
+    },
+    {
+      "id": "nose",
+      "name": "Nose cone",
+      "role": "Aerodynamic point that shielded the instruments during launch",
+      "snap": "Nose cone fitted."
+    },
+    {
+      "id": "geiger",
+      "name": "Geiger counter section",
+      "role": "Van Allen's cosmic-ray detector tube",
+      "snap": "Geiger counter installed. This part made the breakthrough.",
+      "fact": "e1-counter"
+    },
+    {
+      "id": "battery",
+      "name": "Battery section",
+      "role": "Mercury batteries that powered the transmitters",
+      "snap": "Batteries secured. They will run for 31 days.",
+      "fact": "e1-batteries"
+    },
+    {
+      "id": "electronics",
+      "name": "Electronics section",
+      "role": "High and low power radio telemetry transmitters",
+      "snap": "Transmitter electronics connected."
+    },
+    {
+      "id": "tail",
+      "name": "Tail section",
+      "role": "Fourth-stage rocket motor casing",
+      "snap": "Tail attached. Explorer 1 stayed attached to its final stage."
+    }
+  ],
+  "challenge": {
+    "id": "radiation-belts",
+    "title": "Find the radiation belts",
+    "intro": "Slide the satellite along its orbit and watch the Geiger counter. Log three readings: low, middle, and high.",
+    "hint": "Explorer 1's counter did something strange up high. Slide all the way up and see."
+  },
+  "vault": [
+    {
+      "title": "America's first satellite",
+      "fact": "e1-launch",
+      "image": null
+    },
+    {
+      "title": "An oval orbit",
+      "fact": "e1-orbit",
+      "image": null
+    },
+    {
+      "title": "The zero counts",
+      "fact": "e1-zero",
+      "image": null
+    },
+    {
+      "title": "12 years in orbit",
+      "fact": "e1-reentry",
+      "image": null
+    }
+  ],
+  "signal": [
+    {
+      "kind": "Last contact",
+      "fact": "e1-last-contact"
+    },
+    {
+      "kind": "Loss of power",
+      "fact": "e1-batteries"
+    },
+    {
+      "kind": "Official end of mission",
+      "fact": "e1-reentry"
+    }
+  ],
+  "signal_note": "Explorer 1 fell silent after 105 days, but orbited silently for over a decade before atmospheric re-entry.",
+  "ending": "Explorer 1 discovered Earth's radiation belts, opening the era of scientific space discovery.",
+  "debrief_facts": [
+    "e1-launch",
+    "e1-belts",
+    "e1-reentry"
+  ]
+}

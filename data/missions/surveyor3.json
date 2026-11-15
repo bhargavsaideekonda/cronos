@@ -1,0 +1,122 @@
+{
+  "id": "surveyor3",
+  "order": 2,
+  "era": "moon",
+  "scene": "moon",
+  "name": "Surveyor 3",
+  "built": true,
+  "intro_fact": "s3-landing",
+  "hotspots": [
+    {
+      "id": "craft",
+      "label": "Inspect the lander",
+      "x": 50,
+      "y": 60,
+      "fact": "s3-bounce"
+    },
+    {
+      "id": "soil",
+      "label": "Inspect the soil",
+      "x": 74,
+      "y": 80,
+      "fact": "s3-soil"
+    },
+    {
+      "id": "sky",
+      "label": "Look at Earth in the sky",
+      "x": 72,
+      "y": 30,
+      "fact": "s3-eclipse"
+    }
+  ],
+  "parts": [
+    {
+      "id": "solar",
+      "name": "Solar panel",
+      "role": "Makes power, but only in sunlight",
+      "snap": "Power connected. Remember this one.",
+      "fact": "s3-power"
+    },
+    {
+      "id": "antenna",
+      "name": "Planar antenna",
+      "role": "A flat antenna that sends data home",
+      "snap": "Antenna on. Without it, no pictures reach Earth."
+    },
+    {
+      "id": "camera",
+      "name": "TV camera",
+      "role": "The eyes of the lander",
+      "snap": "Camera fitted.",
+      "fact": "s3-pictures"
+    },
+    {
+      "id": "frame",
+      "name": "Frame and mast",
+      "role": "Holds everything together",
+      "snap": "Frame locked. Everything hangs off this."
+    },
+    {
+      "id": "legs",
+      "name": "Legs with footpads",
+      "role": "Take the shock of landing",
+      "snap": "Legs on. They had a rough day."
+    },
+    {
+      "id": "sampler",
+      "name": "Sampler arm",
+      "role": "A scoop on an arm that digs trenches",
+      "snap": "Sampler fitted.",
+      "fact": "s3-sampler"
+    }
+  ],
+  "challenge": {
+    "id": "soft-landing",
+    "title": "Soft landing",
+    "intro": "Hold the button to fire the engine. Touch down slower than 3 m/s. Gravity never stops pulling.",
+    "hint": "Do not fire too early, or the fuel runs out before the ground."
+  },
+  "vault": [
+    {
+      "title": "In its crater",
+      "fact": "s3-photo-crater",
+      "image": "as12-48-7121"
+    },
+    {
+      "title": "The scoop",
+      "fact": "s3-photo-scoop",
+      "image": "as12-48-7110"
+    },
+    {
+      "title": "Two spacecraft, one photo",
+      "fact": "s3-photo-two",
+      "image": "AS12-48-7134"
+    },
+    {
+      "title": "6,326 pictures",
+      "fact": "s3-pictures",
+      "image": null
+    }
+  ],
+  "signal": [
+    {
+      "kind": "Last contact",
+      "fact": "s3-last-contact"
+    },
+    {
+      "kind": "Loss of power",
+      "fact": "s3-power"
+    },
+    {
+      "kind": "Official end of mission",
+      "fact": "s3-official-end"
+    }
+  ],
+  "signal_note": "Last contact, loss of power and the official end are three different events. For Surveyor 3 we could verify two of them.",
+  "ending": "Surveyor 3 is still on the Moon, and people once walked up to it.",
+  "debrief_facts": [
+    "s3-launch",
+    "s3-landing",
+    "s3-apollo12"
+  ]
+}

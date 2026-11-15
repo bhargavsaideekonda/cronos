@@ -1,0 +1,44 @@
+[
+  {
+    "id": "opp-landing",
+    "text": "Opportunity landed in Eagle Crater on Meridiani Planum, Mars, in January 2004.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/mer-opportunity/",
+    "status": "verified"
+  },
+  {
+    "id": "opp-blueberries",
+    "text": "Opportunity discovered hematite-rich spherules ('blueberries') providing proof of past liquid water on Mars.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/mer-opportunity/",
+    "status": "verified"
+  },
+  {
+    "id": "opp-duration",
+    "text": "Designed for a 90-sol mission, Opportunity explored Mars for nearly 15 years and traversed over 45 kilometers.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/mer-opportunity/",
+    "status": "verified"
+  },
+  {
+    "id": "opp-last-contact",
+    "text": "Last communication with Opportunity occurred on June 10, 2018 during a global dust storm that blotted out the Sun.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/mer-opportunity/",
+    "status": "verified"
+  },
+  {
+    "id": "opp-complete",
+    "text": "NASA officially declared the Opportunity mission complete on February 13, 2019 after hundreds of recovery attempts.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/mer-opportunity/",
+    "status": "verified"
+  },
+  {
+    "id": "opp-solar",
+    "text": "Opportunity relied on solar arrays for power, making dust accumulation on its panels a persistent operational challenge.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/mer-opportunity/",
+    "status": "verified"
+  }
+]

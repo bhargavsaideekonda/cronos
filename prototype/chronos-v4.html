@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="base">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Project Chronos: Odyssey of the Silent Fleet</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Syne:wght@500;700&display=swap">
+<style>
+:root,[data-theme=base]{--bg:#120d0a;--sf:#1b1410;--ink:#efe3cf;--dim:#a89886;--ac:#e0a458;--ac2:#5fa8a0}
+[data-theme=moon]{--bg:#0a1017;--sf:#121c25;--ink:#e9edf0;--dim:#93a3ae;--ac:#b9c7d3;--ac2:#d9a95b}
+[data-theme=mars]{--bg:#160c09;--sf:#22140f;--ink:#f1e1d4;--dim:#b39583;--ac:#d9773f;--ac2:#e8c39a}
+[data-theme=orb]{--bg:#06101c;--sf:#0d1b2c;--ink:#e6eef5;--dim:#8aa0b4;--ac:#8fb8de;--ac2:#e0a458}
+[data-theme=ast]{--bg:#0e0f14;--sf:#171a22;--ink:#e8e6df;--dim:#9a9aa6;--ac:#b8a28a;--ac2:#7fa3b0}
+[data-theme=deep]{--bg:#070a14;--sf:#0e1424;--ink:#e8e6f0;--dim:#8f93ad;--ac:#c9a85c;--ac2:#7d8fe0}
+[data-tint="1"]{--ac:var(--ac2)}
+:root{--line:color-mix(in srgb,var(--ac) 35%,transparent);--d:'Syne',system-ui,sans-serif;--b:'Inter','Segoe UI',system-ui,sans-serif;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}html,body{height:100%;margin:0;background:var(--bg)}
+body{color:var(--ink);font:300 1rem/1.5 var(--b);overflow:hidden;transition:background 1s}
+h1,h2,h3{font-family:var(--d);font-weight:700;margin:0;line-height:1.05}
+button{font:inherit;color:inherit}
+.scene{position:absolute;inset:0;display:none;opacity:0;transition:opacity .8s;z-index:1}
+.scene.on{display:block}.scene.show{opacity:1}
+.ctr{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:24px;text-align:center}
+.big{font-size:clamp(2rem,6.5vw,4.6rem)}.mid{font-size:clamp(1.5rem,4vw,2.5rem)}
+.btn{background:transparent;border:1px solid var(--line);border-radius:999px;padding:.75rem 1.5rem;cursor:pointer;transition:.3s;font-weight:500}
+.btn:hover,.btn:focus-visible{background:var(--ac);color:var(--bg);outline:2px solid var(--ac);outline-offset:3px}
+.btn[disabled]{opacity:.35;pointer-events:none}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+.wrap{position:absolute;inset:0;overflow:auto;padding:calc(70px + env(safe-area-inset-top,0px)) 20px 170px;display:flex;flex-direction:column;align-items:center;gap:18px}
+.tag{display:inline-block;font-size:.75rem;border:1px solid var(--line);border-radius:6px;padding:1px 8px;color:var(--ac)}
+.tag.story{border-style:dashed;color:var(--dim)}.tag.model{color:var(--ink)}
+.dim{color:var(--dim)}.note{max-width:620px;font-size:.85rem;color:var(--dim);border:1px dashed var(--line);border-radius:12px;padding:12px 14px}
+.ln{opacity:0;transition:opacity 1.4s;max-width:34ch;font:500 clamp(1.1rem,2.6vw,1.6rem)/1.35 var(--d)}.ln.in{opacity:1}
+input{font:500 1.6rem var(--d);background:transparent;border:0;border-bottom:1px solid var(--ac);color:var(--ink);text-align:center;width:min(300px,80vw);padding:6px}
+#top{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));left:18px;right:18px;display:flex;justify-content:space-between;z-index:15;font-size:.85rem;color:var(--dim);pointer-events:none}
+/* Chronos Base */
+.sky{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 18%,color-mix(in srgb,var(--ac) 22%,transparent),transparent 60%),var(--bg)}
+.ring{position:absolute;left:50%;top:14%;width:clamp(70px,12vw,130px);aspect-ratio:1;border:1px solid var(--ac);border-radius:50%;transform:translateX(-50%)}
+.sk{position:absolute;left:-2%;right:-2%;bottom:0;background-image:radial-gradient(var(--ac) 1px,transparent 1.6px);background-size:15px 21px}
+.sk.a{height:58%;background-color:color-mix(in srgb,var(--sf) 70%,var(--bg));clip-path:polygon(0 100%,0 40%,8% 40%,8% 18%,15% 18%,15% 52%,26% 52%,26% 8%,31% 8%,31% 45%,44% 45%,50% 20%,58% 45%,66% 45%,66% 14%,74% 14%,74% 50%,86% 50%,86% 28%,93% 28%,93% 46%,100% 46%,100% 100%);opacity:.9}
+.sk.b{height:36%;background-color:var(--sf);clip-path:polygon(0 100%,0 30%,12% 30%,12% 55%,24% 55%,24% 12%,34% 12%,34% 60%,52% 60%,52% 25%,63% 25%,63% 55%,80% 55%,80% 18%,90% 18%,90% 50%,100% 50%,100% 100%)}
+.water{position:absolute;left:0;right:0;bottom:0;height:16%;background:linear-gradient(transparent,var(--bg))}
+#rad{position:absolute;left:50%;bottom:calc(150px + env(safe-area-inset-bottom,0px));width:0;height:0;z-index:12}
+#rad .c{position:absolute;width:84px;height:84px;margin:-42px;border-radius:50%;background:var(--bg);border:1px solid var(--ac);cursor:pointer;z-index:2;font-family:var(--d);font-weight:700}
+#rad .i{position:absolute;width:76px;height:76px;margin:-38px;border-radius:50%;background:var(--bg);border:1px solid var(--line);cursor:pointer;font-size:.75rem;line-height:1.15;transition:transform .5s cubic-bezier(.3,1.4,.5,1),opacity .4s;opacity:0;transform:scale(.2);pointer-events:none}
+#rad.open .i{opacity:1;pointer-events:auto;transform:translate(var(--x),var(--y))}
+#rad .i:hover,#rad .i:focus-visible{background:var(--ac);color:var(--bg)}
+/* map */
+#mp{width:min(560px,92vw);height:auto;max-height:56vh}
+#mp ellipse{fill:none;stroke:var(--ac);opacity:.35}
+#mp .n{cursor:pointer}#mp .n circle{fill:var(--bg);stroke:var(--ac);stroke-width:1.5}#mp .n.lock circle{stroke-dasharray:3 3;stroke:var(--dim)}
+#mp .n:hover circle,#mp .n:focus-visible circle{fill:var(--ac)}#mp text{fill:var(--ink);font-size:11px}
+/* moon */
+.lay{position:absolute;left:-6%;right:-6%;transition:transform .25s}
+.rg{bottom:34%;height:22%;background:var(--sf);clip-path:polygon(0 100%,0 60%,12% 35%,26% 55%,40% 20%,55% 50%,70% 30%,85% 55%,100% 40%,100% 100%)}
+.rg.b{bottom:28%;height:18%;background:color-mix(in srgb,var(--sf) 70%,var(--ink));clip-path:polygon(0 100%,0 50%,20% 70%,35% 30%,52% 65%,75% 40%,100% 70%,100% 100%)}
+.gr{bottom:0;height:34%;background:linear-gradient(color-mix(in srgb,var(--sf) 60%,var(--ink)),var(--sf));clip-path:ellipse(75% 100% at 50% 100%)}
+#earth{position:absolute;top:15%;right:15%;width:clamp(60px,10vw,110px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 30% 30%,#8fc4e6,#2a5f8f 55%,#0b1d33);box-shadow:0 0 50px #4a8fc044;border:0;cursor:pointer}
+#sv{position:absolute;left:46%;bottom:17%;width:clamp(90px,14vw,170px);transform:translateX(-50%)}
+.hot{position:absolute;width:54px;height:54px;margin:-27px;border-radius:50%;border:1px solid var(--ac);background:color-mix(in srgb,var(--ac) 12%,transparent);cursor:pointer;animation:ping 2.4s infinite}
+.hot.done{animation:none;border-color:#6d8}
+@keyframes ping{to{box-shadow:0 0 0 22px transparent}}
+#obj{position:absolute;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));text-align:right;z-index:12;font-size:.9rem;color:var(--dim)}
+/* lab */
+#kit{width:min(440px,92vw);height:auto;max-height:56vh}
+#kit .sh{fill:none;pointer-events:all;stroke:var(--ac);stroke-dasharray:5 4;stroke-width:1.5;transition:.4s}
+#kit .slot{cursor:pointer}#kit .slot.hint .sh{stroke-width:3}
+#kit .slot.ok .sh{fill:color-mix(in srgb,var(--ac) 80%,transparent);stroke-dasharray:none}
+#kit .lb{fill:var(--dim);font-size:10px;text-anchor:middle}#kit .slot.ok .lb{fill:var(--bg);font-weight:500}
+#kit .ld{stroke:var(--dim);stroke-dasharray:2 4;fill:none}
+#tray{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:640px}
+.part{border:1px solid var(--line);border-radius:12px;padding:10px 14px;background:var(--sf);cursor:grab;text-align:left;max-width:200px}
+.part small{display:block;color:var(--dim)}.part.sel{border-color:var(--ac);background:color-mix(in srgb,var(--ac) 18%,var(--sf))}.part.gone{display:none}
+#quiz{position:absolute;inset:0;display:none;align-items:center;justify-content:center;background:color-mix(in srgb,var(--bg) 94%,transparent);z-index:30;padding:20px}
+#quiz.on{display:flex}.qb{max-width:520px;width:100%;display:flex;flex-direction:column;gap:12px}
+.opt{text-align:left;border-radius:12px}.opt.good{background:#3c6;color:#04140a}.opt.bad{background:#c9633a;color:#fff}
+/* vault / signal */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;max-width:900px;width:100%}
+.card{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--sf);cursor:pointer;text-align:left}
+.card .ph{height:100px;display:flex;align-items:center;justify-content:center;font-size:.8rem;color:var(--dim);background:repeating-linear-gradient(135deg,var(--sf) 0 9px,color-mix(in srgb,var(--sf) 80%,var(--ink)) 9px 18px);padding:8px;text-align:center}
+.card .tx{padding:14px 16px;font-size:.9rem}.card h3{font-size:1.05rem;margin-bottom:6px}.lock p,.lock small{filter:blur(6px);user-select:none}
+.tl{max-width:640px;border-left:1px solid var(--line);padding-left:22px;display:flex;flex-direction:column;gap:22px}
+.tl>div{position:relative}.tl>div::before{content:"";position:absolute;left:-28px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--ac)}.tl .q::before{background:none;border:1px solid var(--dim)}
+.tl b{display:block;font:700 1.2rem var(--d)}
+#nx{position:absolute;right:18px;top:calc(38px + env(safe-area-inset-top,0px));z-index:25}
+/* TOCK */
+#tk{position:absolute;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:flex-end;gap:12px;z-index:20;max-width:min(560px,calc(100% - 28px))}
+#bot{width:92px;flex:none;filter:drop-shadow(0 8px 12px #0008)}
+#bot .e{animation:bl 5s infinite;transform-origin:center;transform-box:fill-box}
+@keyframes bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+#bot .lt{fill:var(--ac);animation:lt 2.4s infinite}@keyframes lt{50%{opacity:.3}}
+#tk.talk #bot{animation:bob .4s infinite}#tk.hop #bot{animation:hop .6s 2}#tk.alert #bot{animation:sh .3s 2}#tk.quiet #bot .lt{animation:none;opacity:.25}
+@keyframes bob{50%{transform:translateY(-4px)}}@keyframes hop{50%{transform:translateY(-16px)}}@keyframes sh{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+#say{background:color-mix(in srgb,var(--bg) 88%,transparent);border:1px solid var(--line);border-radius:16px 16px 16px 4px;padding:12px 16px;font-size:.95rem;min-height:56px;backdrop-filter:blur(6px)}
+#iris{position:fixed;inset:0;z-index:60;pointer-events:none;clip-path:circle(0 at 50% 50%)}
+#iris.go{animation:ir 1.2s ease-in-out forwards}@keyframes ir{0%{clip-path:circle(0 at 50% 50%)}45%,55%{clip-path:circle(150% at 50% 50%)}100%{clip-path:circle(0 at 50% 50%)}}
+#moon.sp .lay{display:none}
+.chip{background:transparent;border:1px solid var(--line);border-radius:999px;padding:.45rem 1rem;cursor:pointer;font-size:.9rem;color:var(--ink)}.chip.on{background:var(--ac);color:var(--bg)}
+#ch{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}.card a{color:var(--ac);font-size:.8rem}
+#bot .arm{transform-origin:top center;transform-box:fill-box}#tk.talk #bot .arm{animation:arm .5s infinite alternate}@keyframes arm{to{transform:rotate(16deg)}}
+#bot .hd{transform-origin:50px 48px;animation:sw 8s ease-in-out infinite}@keyframes sw{0%,40%{transform:rotate(0)}50%,60%{transform:rotate(-10deg)}75%,100%{transform:rotate(7deg)}}
+#bgc{position:fixed;inset:0;z-index:0}
+[data-calm="1"] *{animation:none!important;transition:none!important}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<canvas id="bgc" aria-hidden="true"></canvas>
+<div id="top"><span>Project Chronos</span><span id="who"></span></div>
+
+<section class="scene" id="intro"><div class="ctr" id="il">
+<div class="ln">In 1967, a small robot landed on the Moon.</div><div class="ln">It dug, it watched, it sent home thousands of pictures.</div><div class="ln">Then the night came, and it went silent.</div><div class="ln">In this story, the records of that silence are fading.</div>
+<h1 class="big" id="tt" style="opacity:0;transition:opacity 2s">Odyssey of the Silent Fleet</h1><div id="ib" style="opacity:0;transition:opacity 2s;display:flex;gap:10px"><button class="btn" id="b0">Begin</button></div></div></section>
+
+<section class="scene" id="onb"><div class="ctr"><h2 class="mid">Cadet, what should I call you?</h2><input id="nm" maxlength="16" placeholder="your name" aria-label="Cadet name"><button class="btn" id="b1">Join the Corps</button></div></section>
+
+<section class="scene" id="hub"><div class="ctr" style="justify-content:flex-start;padding-top:12vh"><span class="tag story">Story: the Orbital Preservation Corps</span><h2 class="mid">Chronos Base</h2><div id="ch"></div><h3 id="hn" style="margin-top:10px"></h3><p id="hl" class="dim" style="max-width:44ch;margin:0"></p><button class="btn" id="he"></button></div><div id="rad"></div></section>
+
+
+
+<section class="scene" id="moon">
+<button id="earth" data-h="earth" aria-label="Look at Earth"></button>
+<div class="lay rg" data-p="6"></div><div class="lay rg b" data-p="12"></div><div class="lay gr" data-p="20"></div>
+<svg id="sv" viewBox="0 0 120 130" aria-hidden="true"></svg>
+<button class="hot" style="left:46%;top:58%" data-h="craft" aria-label="Inspect Surveyor 3"></button><button class="hot" style="left:72%;top:77%" data-h="soil" aria-label="Inspect the soil"></button>
+<div class="ctr" style="justify-content:flex-start;padding-top:11vh;pointer-events:none"><h2 class="mid" id="mh"></h2><div id="mr"></div></div>
+<div id="obj"><div><span id="oc">0</span> of 3 investigated</div><button class="btn" id="b2" disabled>Open the assembly sheet</button></div></section>
+
+<section class="scene" id="lab"><div class="wrap"><h2 class="mid" id="lt"></h2><span class="tag model">Simplified model. Not a NASA specification.</span><svg id="kit" viewBox="0 0 400 380" aria-label="Exploded spacecraft diagram"></svg><div id="tray"></div></div>
+<div id="quiz"><div class="qb"><span class="tag" id="qn"></span><h2 id="qq" style="font-size:1.5rem"></h2><div id="qo" style="display:flex;flex-direction:column;gap:10px"></div><p id="qe" class="dim" style="min-height:3em"></p><button class="btn" id="qx" style="display:none;align-self:flex-start">Continue</button></div></div></section>
+
+<section class="scene" id="game"><div class="wrap" style="justify-content:flex-start"><span class="tag model">Challenge</span><h2 class="mid" id="gt"></h2><p id="gi" class="dim" style="max-width:48ch;text-align:center;margin:0"></p><div id="gm" style="width:min(560px,94vw)"></div><button class="btn" id="gs" style="opacity:.6">Skip challenge</button></div></section>
+
+<section class="scene" id="vault"><div class="wrap"><h2 class="mid">Evidence vault</h2><p class="dim" style="max-width:52ch;text-align:center;margin:0">Tap a sealed file to restore it. Each one names its source.</p><div class="grid" id="vg"></div><div class="note">Plates are original illustrations, not NASA photos. Each file links to the NASA Image Library, where the real photo can be downloaded and added with its credit line.</div></div></section>
+
+<section class="scene" id="sig"><div class="wrap" style="justify-content:center"><h2 class="mid">Three kinds of “the end”</h2><div class="tl" id="sg"></div><div class="note" id="sn"></div></div></section>
+
+<section class="scene" id="end"><div class="wrap" style="justify-content:center;text-align:center"><h2 class="big" id="et"></h2><p id="es" style="max-width:46ch;font:500 1.2rem var(--d)"></p><div id="bg" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center"></div><div class="note" id="dn" style="text-align:left"></div><p class="dim" id="ps"></p><p class="dim">Machines may fall silent. Their discoveries never do.</p><button class="btn" id="b9">Return to Chronos Base</button></div></section>
+
+<button class="btn" id="nx" style="display:none"></button>
+<div id="tk" style="display:none"><svg id="bot" viewBox="0 0 100 110" aria-hidden="true"><g class="hd"><line x1="68" y1="18" x2="74" y2="5" stroke="var(--ac)" stroke-width="2"/><circle class="lt" cx="74" cy="5" r="3.5"/><path d="M20 48 A30 30 0 0 1 80 48 Z" fill="#d6dde2" stroke="#6b757c" stroke-width="1.5"/><path d="M52 22V48M60 26 A24 24 0 0 1 76 48" fill="none" stroke="#9aa4ab"/><rect x="58" y="31" width="14" height="6" rx="2" fill="#2d6a8f"/><rect x="58" y="40" width="14" height="4" rx="2" fill="var(--ac)"/><g class="e"><circle cx="37" cy="36" r="10.5" fill="#101417" stroke="var(--ac)" stroke-width="2"/><circle class="p" cx="37" cy="36" r="5" fill="var(--ac)"/><circle cx="34" cy="33" r="1.8" fill="#fff"/></g></g><rect class="arm" x="9" y="52" width="7" height="22" rx="3.5" fill="#8e979d"/><rect class="arm" x="84" y="52" width="7" height="22" rx="3.5" fill="#8e979d"/><rect x="22" y="48" width="56" height="34" rx="9" fill="#aeb7bc" stroke="#6b757c" stroke-width="1.5"/><rect x="34" y="56" width="32" height="18" rx="4" fill="#8e979d"/><circle cx="42" cy="65" r="3" fill="var(--ac)"/><rect x="50" y="61" width="12" height="2.5" rx="1" fill="#3a4147"/><rect x="50" y="67" width="12" height="2.5" rx="1" fill="#3a4147"/><rect x="36" y="86" width="28" height="11" rx="5" fill="#3a4147"/><circle cx="25" cy="92" r="13" fill="#2b3034" stroke="#6b757c" stroke-width="2"/><circle cx="25" cy="92" r="5" fill="var(--ac2)"/><circle cx="75" cy="92" r="13" fill="#2b3034" stroke="#6b757c" stroke-width="2"/><circle cx="75" cy="92" r="5" fill="var(--ac2)"/></svg><div id="say"><span id="st"></span></div></div>
+<div id="iris"></div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],R=document.documentElement,NAME="TOCK";
+const S={name:"Cadet",done:false,vt:[],tint:0,calm:false,snd:true};
+try{Object.assign(S,JSON.parse(localStorage.getItem("chronos")||"{}"))}catch(e){}
+const save=()=>{try{localStorage.setItem("chronos",JSON.stringify(S))}catch(e){}};
+const pref=()=>{R.dataset.tint=S.tint;R.dataset.calm=S.calm?1:0};pref();
+let tm,found=new Set(),score=0,placed=0,sel=null;
+const BG={base:"#120d0a",orb:"#06101c",moon:"#0a1017",mars:"#160c09",ast:"#0e0f14",deep:"#070a14"};
+function theme(t){setScene(t);const i=$("#iris");if(S.calm){R.dataset.theme=t;return}i.style.background=BG[t];i.classList.remove("go");void i.offsetWidth;i.classList.add("go");setTimeout(()=>R.dataset.theme=t,550)}
+function say(t,mood){const k=$("#tk"),e=$("#st");clearInterval(tm);e.textContent="";k.className="talk";let i=0;tm=setInterval(()=>{e.textContent=t.slice(0,++i);if(i%3===0)beep();if(i>=t.length){clearInterval(tm);k.className=mood||""}},17)}
+function show(id){$$(".scene").forEach(s=>s.classList.remove("show","on"));const s=document.getElementById(id);s.classList.add("on");requestAnimationFrame(()=>requestAnimationFrame(()=>s.classList.add("show")));
+ const nx={vault:["sig","Final signal"],sig:["end","Debrief"]}[id],n=$("#nx");if(nx){n.style.display="";n.textContent=nx[1];n.onclick=()=>go(nx[0])}else n.style.display="none";
+ $("#tk").style.display=id==="intro"?"none":"flex";$("#who").textContent=S.name==="Cadet"&&id==="intro"?"":"Cadet "+S.name}
+function go(id){show(id);({hub:()=>buildHub(),game:()=>startGame(),lab:()=>{say("Pick a part, then tap its slot. Or drag it. Think about what each part does.");buildLab()},
+ vault:()=>{buildVault();say("Sealed files. Tap to restore them. Evidence first, story second.")},sig:()=>{renderSig();say("This part is quiet on purpose. Honest endings can have more than one date.","quiet")},end:debrief})[id]?.()}
+// intro
+(function(){show("intro");const L=$$("#il .ln");L.forEach((l,i)=>setTimeout(()=>l.classList.add("in"),700+i*2500));setTimeout(()=>{$("#tt").style.opacity=1;$("#ib").style.opacity=1},700+L.length*2500)})();
+$("#b0").onclick=()=>{if(S.name!=="Cadet"){go("hub")}else{show("onb");say("Hi. I’m "+NAME+", the Corps’ archive-bot. Something is erasing our records of the machines we left in space. Let’s save one.","")}};
+$("#b1").onclick=()=>{S.name=$("#nm").value.trim()||"Cadet";save();go("hub")};
+// eyes follow pointer
+addEventListener("pointermove",e=>{const b=$("#bot").getBoundingClientRect(),dx=e.clientX-(b.left+b.width/2),dy=e.clientY-(b.top+b.height/2),m=Math.hypot(dx,dy)||1,k=Math.min(4,m/40);$$("#bot .p").forEach(p=>p.style.transform=`translate(${dx/m*k}px,${dy/m*k}px)`)});
+// hub, audio, animated sky
+let ha="orb",AC=null;const CH={orb:"Earth orbit",moon:"Moon",mars:"Mars",ast:"Asteroid",deep:"Deep space"};
+function beep(){if(!S.snd)return;try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();if(AC.state==="suspended")AC.resume();const o=AC.createOscillator(),g=AC.createGain();o.type="square";o.frequency.value=500+Math.random()*900;g.gain.value=.012;o.connect(g);g.connect(AC.destination);o.start();o.stop(AC.currentTime+.04)}catch(e){}}
+function buildHub(){chooseArch(ORD.find(x=>!S.done[x])||ha,1)}
+function chooseArch(k,first){ha=k;const m=M[k];if(R.dataset.theme!==m.th)theme(m.th);else setScene(m.th);$("#hn").textContent=m.name;$("#hl").textContent=m.blurb;$("#he").textContent="Open archive: "+m.name;
+ $("#ch").innerHTML=ORD.map(x=>`<button class="chip${x===k?" on":""}" data-k="${x}">${CH[x]}${S.done[x]?" ✓":""}</button>`).join("");$$("#ch .chip").forEach(b=>b.onclick=()=>chooseArch(b.dataset.k));buildRad();
+ say(first&&!dn()?"Welcome to Chronos Base, "+S.name+". Pick an archive. Every one has its own sky.":m.name+". "+m.blurb)}
+function buildRad(){const r=$("#rad"),open=r.classList.contains("open");const it=[["Archive "+vtot()+"/20","arch"],["Tint","tint"],[S.snd?"Sound on":"Sound off","snd"],[S.calm?"Motion off":"Motion on","calm"]];
+ r.innerHTML='<button class="c" aria-label="Menu">Chronos</button>'+it.map((x,i)=>{const a=(-160+i*46)*Math.PI/180;return `<button class="i" data-a="${x[1]}" style="--x:${Math.cos(a)*118}px;--y:${Math.sin(a)*118}px">${x[0]}</button>`}).join("");if(open)r.classList.add("open");
+ r.querySelector(".c").onclick=()=>r.classList.toggle("open");
+ r.querySelectorAll(".i").forEach(b=>b.onclick=()=>{const a=b.dataset.a;if(a==="arch")say(vtot()+" of 20 evidence files restored. Files unlock inside each archive.");else if(a==="tint"){S.tint=S.tint?0:1;pref();save();say("New tint applied.")}else if(a==="snd"){S.snd=!S.snd;save();buildRad();beep()}else{S.calm=!S.calm;pref();save();buildRad()}})}
+var SC="base";const cv=$("#bgc"),cx=cv.getContext("2d"),RM=matchMedia("(prefers-reduced-motion:reduce)");let W=0,H=0,drawn="";
+const rnd=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453;return x-Math.floor(x)},acc=()=>getComputedStyle(R).getPropertyValue("--ac").trim()||"#e0a458";
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight;drawn=""}addEventListener("resize",rs);rs();
+function setScene(s){SC=s;drawn=""}
+function stars(t,n,sp,al,o){for(let i=o;i<n+o;i++){const x=((rnd(i)*W+t*sp*(.3+rnd(i+9)))%W+W)%W,y=rnd(i+3)*H,tw=.5+.5*Math.sin(t*(.6+rnd(i+5))+i);cx.globalAlpha=al*(.25+.75*tw);cx.fillStyle="#fff";const z=rnd(i+7)>.92?2:1;cx.fillRect(x,y,z,z)}cx.globalAlpha=1}
+function glow(x,y,r,c,a){const g=cx.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,c);g.addColorStop(1,"transparent");cx.globalAlpha=a;cx.fillStyle=g;cx.fillRect(x-r,y-r,r*2,r*2);cx.globalAlpha=1}
+const SCN={
+base(t,a){stars(t,90,3,.7,0);glow(W*.5,H*.2,H*.6,a,.12)},
+orb(t,a){stars(t,80,0,.8,0);const ex=W*.5,ey=H*2.05,r=H*1.25,g=cx.createRadialGradient(ex,H*.9,0,ex,ey,r);g.addColorStop(0,"#2f6fae");g.addColorStop(1,"#071b33");cx.fillStyle=g;cx.beginPath();cx.arc(ex,ey,r,0,7);cx.fill();
+ cx.save();cx.clip();cx.fillStyle="#fff";for(let i=0;i<16;i++){const x=((rnd(i)*W*1.4+t*(10+i*2))%(W*1.4))-W*.2,y=H*.88+rnd(i+2)*H*.45;cx.globalAlpha=.1;cx.beginPath();cx.ellipse(x,y,70+rnd(i+4)*150,5+rnd(i+6)*9,0,0,7);cx.fill()}cx.restore();cx.globalAlpha=1;
+ cx.strokeStyle="#9fcdf2";cx.lineWidth=3;cx.globalAlpha=.55;cx.beginPath();cx.arc(ex,ey,r,0,7);cx.stroke();cx.strokeStyle=a;cx.lineWidth=26;cx.globalAlpha=.1+.08*Math.sin(t*.8);cx.beginPath();cx.ellipse(ex,ey,W*.62,H*1.55,0,0,7);cx.stroke();cx.globalAlpha=1;
+ for(let k=0;k<14;k++){const an=-Math.PI/2+(t*.12-k*.012)%6.283*0+ (t*.12-k*.012),x=ex+Math.cos(an)*W*.62,y=ey+Math.sin(an)*H*1.55*.9;if(y<H&&y>0){cx.fillStyle="#fff";cx.globalAlpha=.9-k*.06;cx.fillRect(x,y,k?2:4,k?2:4)}}cx.globalAlpha=1},
+moon(t,a){stars(t,110,2,.9,0);const ex=W*.72,ey=H*.3+Math.sin(t*.07)*H*.015,r=Math.min(W,H)*.07;glow(ex,ey,r*3,"#4a8fc0",.35);const g=cx.createRadialGradient(ex-r*.3,ey-r*.3,0,ex,ey,r);g.addColorStop(0,"#8fc4e6");g.addColorStop(.6,"#2a5f8f");g.addColorStop(1,"#0b1d33");cx.fillStyle=g;cx.beginPath();cx.arc(ex,ey,r,0,7);cx.fill();
+ cx.save();cx.clip();cx.fillStyle="#fff";for(let i=0;i<4;i++){cx.globalAlpha=.25;cx.beginPath();cx.ellipse(ex+Math.sin(t*.2+i*2)*r,ey+(i-1.5)*r*.4,r*.6,r*.08,0,0,7);cx.fill()}cx.restore();cx.globalAlpha=1;
+ const k=(t%9)/9;if(k<.1){const p=k/.1;cx.strokeStyle="#fff";cx.globalAlpha=1-p;cx.lineWidth=1.5;cx.beginPath();cx.moveTo(W*(.1+p*.4),H*(.1+p*.2));cx.lineTo(W*(.1+p*.4)-70,H*(.1+p*.2)-25);cx.stroke();cx.globalAlpha=1}
+ for(let i=0;i<46;i++){const x=rnd(i)*W+Math.sin(t*.3+i)*18,y=H*.95-((t*9*(.3+rnd(i+2))+rnd(i+4)*H)%(H*.55));cx.globalAlpha=.25*(1-(H*.95-y)/(H*.55));cx.fillStyle="#cfd6db";cx.fillRect(x,y,2,2)}cx.globalAlpha=1;
+ cx.fillStyle="#1d262b";cx.beginPath();cx.moveTo(0,H);for(let x=0;x<=W;x+=20)cx.lineTo(x,H*.84-Math.sin(x*.004+1)*H*.04-Math.sin(x*.013)*H*.015);cx.lineTo(W,H);cx.fill()},
+mars(t,a){const g=cx.createLinearGradient(0,0,0,H);g.addColorStop(0,"#2a120d");g.addColorStop(1,"#8a4a30");cx.globalAlpha=.9;cx.fillStyle=g;cx.fillRect(0,0,W,H);cx.globalAlpha=1;glow(W*.28,H*.3,90,"#ffd9a0",.5+.1*Math.sin(t));
+ cx.strokeStyle="#e8c39a";cx.lineWidth=1;for(let i=0;i<170;i++){const x=(rnd(i)*W+t*(90+rnd(i+1)*180))%W,y=rnd(i+2)*H*.92,l=10+rnd(i+3)*40;cx.globalAlpha=.06+rnd(i+4)*.2;cx.beginPath();cx.moveTo(x,y);cx.lineTo(x-l,y+l*.05);cx.stroke()}cx.globalAlpha=1;
+ cx.fillStyle="#e8c39a";for(let j=0;j<70;j++){const y=H*.88-j*H*.008,x=W*.72+Math.sin(t*2.2+j*.35)*(8+j*.9);cx.globalAlpha=.35*(1-j/70);cx.fillRect(x,y,3,3)}cx.globalAlpha=1;
+ cx.fillStyle="#1c0e0a";cx.beginPath();cx.moveTo(0,H);for(let x=0;x<=W;x+=20)cx.lineTo(x,H*.88-Math.sin(x*.005)*H*.03);cx.lineTo(W,H);cx.fill()},
+ast(t,a){stars(t,100,1,.9,0);const x0=W/2,y0=H*.48,R=Math.min(W,H)*.3;cx.save();cx.translate(x0,y0);cx.rotate(t*.1);cx.beginPath();for(let i=0;i<=60;i++){const th=i/60*6.283,j=1+.07*Math.sin(3*th+1)+.05*Math.sin(5*th);cx.lineTo(Math.cos(th)*R*1.5*j,Math.sin(th)*R*.55*j)}cx.closePath();const g=cx.createRadialGradient(-R*.6,-R*.2,R*.1,0,0,R*1.6);g.addColorStop(0,"#d9c3a5");g.addColorStop(1,"#3b3026");cx.fillStyle=g;cx.fill();cx.clip();cx.strokeStyle="#00000055";cx.lineWidth=2;for(let i=0;i<7;i++){cx.beginPath();cx.arc((rnd(i)-.5)*R*2.2,(rnd(i+3)-.5)*R*.7,8+rnd(i+5)*22,0,7);cx.stroke()}cx.restore();
+ cx.strokeStyle=a;cx.globalAlpha=.3;cx.setLineDash([4,6]);cx.beginPath();cx.ellipse(x0,y0,R*2.1,R*1.1,-.2,0,7);cx.stroke();cx.setLineDash([]);cx.globalAlpha=1;const an=t*.45,px=x0+Math.cos(an)*R*2.1*Math.cos(-.2)-Math.sin(an)*R*1.1*Math.sin(-.2),py=y0+Math.cos(an)*R*2.1*Math.sin(-.2)+Math.sin(an)*R*1.1*Math.cos(-.2);glow(px,py,18,a,.9);cx.fillStyle="#fff";cx.fillRect(px-2,py-2,4,4);
+ for(let i=0;i<14;i++){const x=(rnd(i)*W+t*(6+rnd(i+2)*14))%W,y=rnd(i+4)*H;cx.fillStyle="#8a8174";cx.globalAlpha=.7;cx.fillRect(x,y,2+rnd(i)*3,2+rnd(i)*3)}cx.globalAlpha=1},
+deep(t,a){stars(t,70,3,.5,0);stars(t,60,8,.8,200);glow(W*.82,H*.2,70,"#fff3d0",.5);const ox=W*.12,oy=H*.84;for(let k=0;k<5;k++){const r=(t*38+k*90)%450;cx.strokeStyle=a;cx.globalAlpha=.4*(1-r/450);cx.lineWidth=1.5;cx.beginPath();cx.arc(ox,oy,r,-.9,.2);cx.stroke()}cx.globalAlpha=1;cx.strokeStyle="#ece6d6";cx.fillStyle="#3a4147";cx.lineWidth=1.5;cx.beginPath();cx.arc(ox,oy,12,-1.2,.8);cx.stroke();cx.fillRect(ox-6,oy-4,9,9)}};
+function loop(ts){const still=S.calm||RM.matches;if(!still){cx.clearRect(0,0,W,H);(SCN[SC]||SCN.base)(ts/1000,acc())}else if(drawn!==SC+W){cx.clearRect(0,0,W,H);(SCN[SC]||SCN.base)(3,acc());drawn=SC+W}requestAnimationFrame(loop)}
+requestAnimationFrame(loop);
+// missions
+if(Array.isArray(S.vt))S.vt={moon:S.vt};if(!S.vt||typeof S.vt!=="object")S.vt={};if(!S.done||typeof S.done!=="object")S.done={};
+const ORD=["orb","moon","mars","ast","deep"],NP={moon:[90,140],mars:[310,80],ast:[250,215],deep:[355,185]};let cm="moon",pick="moon";
+const vtot=()=>ORD.reduce((n,k)=>n+(S.vt[k]||[]).length,0),dn=()=>ORD.filter(k=>S.done[k]).length,nextTh=()=>{const k=ORD.find(x=>!S.done[x]);return k?M[k].th:"base"};
+const ZG=[{s:'<rect x="110" y="14" width="180" height="34" rx="4"/>',x:200,y:35},{s:'<rect x="165" y="84" width="70" height="46" rx="8"/>',x:200,y:111},{s:'<path d="M200 170 L110 340 L290 340 Z"/>',x:200,y:300},{s:'<rect x="296" y="180" width="94" height="30" rx="8"/>',x:343,y:200}];
+const SUN="radial-gradient(circle at 40% 40%,#fff3d0,#e0a458 55%,transparent 72%)";
+const M={
+orb:{th:"orb",name:"Explorer 1",line:"America’s first satellite, launched January 31, 1958.",blurb:"Explorer 1, 1958: the first US satellite. Its Geiger counter led to the discovery of Earth’s radiation belts.",sky:[SUN,.6],
+hero:'<g stroke="#ece6d6" stroke-width="2"><rect x="50" y="10" width="20" height="100" rx="8" fill="#cfd6db"/><path d="M50 32H70M50 52H70M50 72H70" stroke="#3a4147"/><path d="M50 62 L22 80 M70 62 L98 80 M50 42 L22 24 M70 42 L98 24" fill="none"/></g>',
+sp:{craft:"Explorer 1: a slim satellite of about 14 kg, launched on Jan 31, 1958. It carried a Geiger counter built by James Van Allen.",soil:"Its orbit was an oval: lowest about 358 km, highest about 2,550 km, one lap every 114.8 minutes.",sky:"At high altitude the counter sometimes read zero. Scientists later worked out it was overwhelmed by intense radiation trapped by Earth’s magnetic field."},
+parts:[["Whip antennas","Send data down to Earth","top","Antennas on. Two of them sent the data home."],["Geiger counter","Counts charged particles from space","core","Detector fitted. This is the part that made the discovery."],["Body shell","A slim shell that holds everything","shell","Shell closed. The whole satellite weighed about 14 kg."],["Mercury batteries","Power for the transmitters, no solar panels","power","Batteries in. They ran the main transmitter for 31 days."]],
+v:[["America’s first","Explorer 1 was the first satellite launched by the United States, on Jan 31, 1958.","NASA Science, Explorer 1"],["The zero counts","At high altitude the Geiger counter sometimes read zero. It was overwhelmed by radiation, not broken.","NASA Science and Wikipedia"],["An oval orbit","Lowest about 358 km, highest about 2,550 km, a lap every 114.8 minutes.","Wikipedia. Confirm in NSSDCA"],["Batteries and re-entry","The main transmitter ran 31 days on batteries. The satellite stayed in orbit until March 31, 1970.","NASA Science, Explorer 1"]],
+sg:[["r","Batteries run down","The main transmitter lasted 31 days and the low-power one 105 days (mercury batteries)."],["r","Last transmission: May 23, 1958","NASA Science gives this date. Some pages say May 21, so sources differ."],["r","Re-entry: March 31, 1970","It kept orbiting silently for 12 years, then burned up after about 58,000 laps."]],
+sn:"Three ends again: power running down, the last signal, and the end of the object itself. Here they are years apart.",
+end:"Explorer 1 discovered Earth’s radiation belts, then circled silently for 12 years.",real:"Launched January 31, 1958 (February 1 UTC). Last transmission May 23, 1958. Re-entered March 31, 1970 (NASA Science)."},
+moon:{th:"moon",name:"Surveyor 3",line:"A robot lander that tested the Moon’s soil in April 1967.",blurb:"Surveyor 3, 1967: a robot lander that dug the Moon’s soil. Apollo 12 astronauts later walked up to it.",sky:["radial-gradient(circle at 30% 30%,#8fc4e6,#2a5f8f 55%,#0b1d33)",1],
+hero:'<g fill="none" stroke="#ece6d6" stroke-width="2.5" stroke-linecap="round"><path d="M60 40 L22 118 M60 40 L98 118 M60 40 L60 120" stroke="#9aa7a8"/><path d="M60 8 V40"/><circle cx="60" cy="40" r="9" fill="#2d3b40"/></g><rect x="38" y="2" width="44" height="12" rx="2" fill="#2a5f8f" stroke="#ece6d6"/><circle cx="60" cy="42" r="5" fill="#d9a95b"/>',
+sp:{craft:"Surveyor 3: a robot lander with a TV camera and a soil scoop. Reflective rocks confused its landing radar, and it bounced twice before it settled.",soil:"The scoop reached about 1.5 m and dug about 18 cm. Tests showed the soil acts like wet sand, strong enough to hold an Apollo lander.",sky:"Earth, hanging in the black sky. Surveyor 3’s camera watched Earth eclipse the Sun on April 24, 1967."},
+parts:[["Solar panel","Makes power, but only in sunlight","top of mast","Power connected. Remember this one."],["TV camera and mirror","The eyes: two lenses under a movable mirror","mast head","Camera fitted. The real one sent back more than 6,000 pictures."],["Frame and legs","Holds everything and takes the landing","body and legs","Frame locked. Everything hangs off this."],["Surface sampler","A scoop on an arm that digs trenches","side arm","Sampler fitted. Apollo 12 later brought this part home."]],
+v:[["The landing","Surveyor 3 touched down April 20, 1967, bounced twice, then settled in a crater in Oceanus Procellarum.","NASA Science, Surveyor 3"],["Earth eclipses the Sun","The camera recorded Earth passing in front of the Sun on April 24, 1967.","Wikipedia. Confirm in the NASA archive"],["The scoop","Four trenches and thirteen impact tests showed the soil could support Apollo.","NASA Science, Surveyor 3"],["The Apollo 12 visit","On Nov 20, 1969, Pete Conrad and Alan Bean removed the camera and scoop to study long exposure on the Moon.","NASA Science, Footpads and Footprints"]],
+sg:[["r","Last contact: May 4, 1967","NASA says controllers last made contact two Earth days after the lunar night began."],["r","Loss of power","Surveyor 3 ran on solar panels. With no sunlight, it had nothing left to run on."],["q","Official termination","We found no verified date, so we don’t invent one."]],
+sn:"Removed from the first prototype: “May 3,” the DSS 42 station, and the final-frame story. None could be verified.",
+end:"Surveyor 3 stayed on the Moon, and people walked up to it.",real:"Launch April 17, 1967. Landing April 20, 1967. Apollo 12 visit November 20, 1969 (NASA Science)."},
+mars:{th:"mars",name:"Opportunity",line:"A solar-powered rover on Mars, 2004 to 2018.",blurb:"Opportunity, 2004 to 2018: built for 90 Martian days, it explored Mars for almost 15 years.",sky:["radial-gradient(circle at 40% 40%,#ffd9a0,#d9773f 60%,transparent 72%)",.8],
+hero:'<g stroke="#ece6d6" stroke-width="2" fill="#3a4147"><rect x="25" y="60" width="70" height="28" rx="5"/><rect x="8" y="48" width="104" height="12" fill="#2a5f8f"/><path d="M60 48V16" fill="none"/><rect x="50" y="6" width="20" height="10" rx="3"/></g><g fill="#22272b" stroke="#ece6d6" stroke-width="2"><circle cx="30" cy="104" r="12"/><circle cx="60" cy="108" r="12"/><circle cx="90" cy="104" r="12"/></g>',
+sp:{craft:"Opportunity: a solar-powered rover designed to last about 90 Martian days and drive about 1,000 m. It lasted almost 15 years.",soil:"Dust settles on solar panels. The 2018 global storm was the most extreme that Spirit or Opportunity had seen since 2004.",sky:"A dusty Martian sky. In June 2018 a global storm darkened the sky over Opportunity for months."},
+parts:[["Solar arrays","Turn sunlight into power","deck","Arrays on. This is what the dust storm later starved."],["Camera mast","Cameras high up to look around","mast","Mast fitted. Cameras help scientists choose where to drive."],["Body and wheels","Carries everything across rocky ground","body and wheels","Body done. Opportunity drove over 28 miles, a record."],["Robotic arm","Puts instruments on rocks to study them","arm","Arm fitted. It studies rocks up close."]],
+v:[["Built for 90 days","Designed for 90 Martian days and about 1,000 m of driving, it kept going for almost 15 years.","NASA news release, Feb 2019"],["The record drive","It roamed about 28 miles, the longest drive off Earth.","collectSPACE and Fox News. Confirm with NASA"],["The storm","A global dust storm darkened the sky from June 2018 and starved the rover of energy.","NASA via Spaceflight Now"],["Perseverance Valley","The rover went silent at Perseverance Valley on the rim of Endeavour crater, and stays parked there.","collectSPACE. Confirm with NASA"]],
+sg:[["r","Last communication: June 10, 2018","NASA says the solar-powered rover’s final communication was received June 10, 2018."],["r","Loss of power","A global dust storm blackened the sky and starved the solar panels of sunlight."],["r","Mission complete: Feb 13, 2019","After more than 1,000 recovery commands, NASA declared the mission complete. Here the official end has a verified date."]],
+sn:"Last signal, loss of power and the official end are different events. Opportunity is a case where all three are documented.",
+end:"Opportunity worked on Mars for almost 15 years and stays parked in Perseverance Valley.",real:"Landed on Mars in January 2004. Last communication June 10, 2018. Mission declared complete February 13, 2019 (NASA)."},
+ast:{th:"ast",name:"NEAR Shoemaker",line:"The first spacecraft to orbit, then land on, an asteroid.",blurb:"NEAR Shoemaker, 1996 to 2001: first to orbit an asteroid, then first to land on one.",sky:[SUN,.5],
+hero:'<g stroke="#ece6d6" stroke-width="2"><rect x="44" y="50" width="32" height="40" rx="4" fill="#3a4147"/><rect x="2" y="62" width="38" height="16" fill="#2a5f8f"/><rect x="80" y="62" width="38" height="16" fill="#2a5f8f"/><path d="M60 50V30" fill="none"/><path d="M42 30 Q60 12 78 30 Z" fill="#9aa7a8"/></g>',
+sp:{craft:"NEAR Shoemaker: launched Feb 17, 1996 to study the asteroid Eros from orbit. It ended by touching down.",soil:"Eros is about 21 miles long. The spacecraft came down gently on the tips of two solar panels and its bottom edge.",sky:"The Sun is faint out here. NASA says the spacecraft succumbed to extreme cold, about minus 173 °C."},
+parts:[["Solar panels","Turn sunlight into power","panels","Panels on. They also became its landing feet."],["High-gain antenna","Sends data home across space","dish","Dish fitted. Without it, no data comes home."],["Spacecraft body","Holds the computers and instruments","body","Body locked."],["Gamma-ray spectrometer","Measures what the asteroid is made of","instrument bay","Fitted. It worked for about two weeks after landing."]],
+v:[["First to orbit an asteroid","NEAR began orbiting Eros on Feb 14, 2000 and stayed about a year.","NASA Discovery Program"],["Touchdown","It touched down on Eros on Feb 12, 2001, landing on the tips of two solar panels and its bottom edge.","NASA Discovery Program"],["A new name","On March 14, 2000 it was renamed in honor of geologist Eugene M. Shoemaker.","NASA Science"],["The last call","Its last data signals came on Feb 28, 2001. A try on Dec 10, 2002 failed.","NASA Science, NSSDCA"]],
+sg:[["r","Touchdown: Feb 12, 2001","NEAR landed on Eros and kept sending data."],["r","Last contact: Feb 28, 2001","The last data signals arrived at 7 p.m. EST (NSSDCA)."],["r","After the cold","NASA says it succumbed to extreme cold. A Dec 10, 2002 attempt got no reply."]],
+sn:"Time zones matter: 7 p.m. EST on Feb 28 is already March 1 in UTC, so references list different dates.",
+end:"NEAR Shoemaker rests on Eros, where it landed.",real:"Launch Feb 17, 1996. Orbit of Eros from Feb 14, 2000. Landing Feb 12, 2001. Last contact Feb 28, 2001 (NASA)."},
+deep:{th:"deep",name:"Pioneer 10",line:"The first spacecraft through the asteroid belt and on to Jupiter.",blurb:"Pioneer 10, 1972 to 2003: first to Jupiter, first on all-nuclear power, now silent and drifting away.",sky:[SUN,.35],
+hero:'<g stroke="#ece6d6" stroke-width="2"><path d="M14 44 Q60 -8 106 44 Q60 24 14 44Z" fill="#9aa7a8"/><path d="M60 38 L84 56 L84 82 L60 100 L36 82 L36 56Z" fill="#3a4147"/><path d="M84 68 H114 M36 68 H6" fill="none"/><rect x="108" y="62" width="10" height="12" fill="#d9a95b"/><rect x="2" y="62" width="10" height="12" fill="#d9a95b"/></g>',
+sp:{craft:"Pioneer 10: launched March 2, 1972. Designed for a 21-month mission, it kept transmitting for almost 31 years.",soil:"Its power came from RTGs, which turn heat from radioactive material into electricity. NASA says that power decayed over time.",sky:"Its last signal came from about 12.2 billion km away and took 11 hours 20 minutes to reach Earth."},
+parts:[["Dish antenna","Points at Earth to send signals home","dish","Dish fitted. At the end, signals took over 11 hours to arrive."],["Photopolarimeter","Took the first close pictures of Jupiter","instrument head","Fitted. Pioneer 10 imaged Jupiter with this kind of instrument."],["Main body","Holds the electronics","hub","Hub locked."],["RTG power boom","Turns radioactive heat into electricity","power boom","Power online. Pioneer 10 was the first craft with all-nuclear electric power."]],
+v:[["First to Jupiter","In December 1973 it passed Jupiter and sent back the first close images.","NASA Science, Pioneer 10"],["The asteroid belt","It was the first spacecraft to pass through the asteroid belt.","NASA news release, 2003"],["The plaque","It carries a plaque about its makers, designed by Carl Sagan, Frank Drake and Linda Salzman Sagan.","NASA"],["Farthest for a while","Until Feb 17, 1998 it was the farthest human-made object, until Voyager 1 passed it.","NASA Science, Pioneer 10"]],
+sg:[["r","Routine contact ended: March 31, 1997","NASA ended routine contact. The spacecraft kept being tracked."],["r","Last signal: January 23, 2003","NASA Science gives this date. A 2003 NASA news release said Jan 22, so sources differ."],["r","No signal: February 7, 2003","The last contact attempt detected no signal."]],
+sn:"Three different ends: routine contact, the last signal, and the last attempt. Silent doesn’t mean gone, it is still travelling away from us.",
+end:"Pioneer 10 is silent and still drifting out of the solar system.",real:"Launch March 2, 1972. Jupiter flyby December 1973. Last signal January 23, 2003 (NASA Science)."}};
+// mission scene
+let tries=0;const G={stop:null};
+function startMission(k){cm=k;const m=M[k];found.clear();placed=0;tries=0;$("#mh").textContent=m.name;$("#mr").innerHTML='<span class="tag">Real</span> '+m.line;$("#sv").innerHTML=m.hero;const e=$("#earth");e.style.background=m.sky[0];e.style.width=`calc(clamp(60px,10vw,110px)*${m.sky[1]})`;
+ $("#moon").classList.toggle("sp",k==="deep"||k==="orb");$$("[data-h]").forEach(h=>h.classList.remove("done"));$("#oc").textContent=0;$("#b2").disabled=true;theme(m.th);setTimeout(()=>{show("moon");say(S.name+", this is "+m.name+". Tap the glowing rings.")},550)}
+$$("[data-h]").forEach(h=>h.onclick=()=>{const k=h.dataset.h;say(M[cm].sp[k==="earth"?"sky":k],"hop");found.add(k);h.classList.add("done");$("#oc").textContent=found.size;$("#b2").disabled=found.size<3});
+$("#b2").onclick=()=>go("lab");$("#he").onclick=()=>startMission(ha);
+$("#moon").addEventListener("pointermove",e=>{if(S.calm)return;const x=e.clientX/innerWidth-.5;$$("#moon .lay").forEach(l=>l.style.transform=`translateX(${x*-l.dataset.p}px)`)});
+// lab
+function buildLab(){const P=M[cm].parts;placed=0;sel=null;$("#lt").textContent="Assembly sheet: "+M[cm].name;$("#kit").innerHTML='<path class="ld" d="M200 48V84M200 130V170M200 195H296"/>'+P.map((p,i)=>`<g class="slot" data-k="${i}" tabindex="0" role="button" aria-label="Slot: ${p[2]}"><g class="sh">${ZG[i].s}</g><text class="lb" x="${ZG[i].x}" y="${ZG[i].y}">${p[2]}</text></g>`).join("");
+ const t=$("#tray");t.innerHTML="";P.map((p,i)=>i).sort(()=>Math.random()-.5).forEach(i=>{const p=P[i],b=document.createElement("button");b.className="part";b.draggable=true;b.dataset.k=i;b.innerHTML=p[0]+"<small>"+p[1]+"</small>";b.ondragstart=e=>e.dataTransfer.setData("t",i);b.onclick=()=>{$$(".part").forEach(x=>x.classList.remove("sel"));b.classList.add("sel");sel=""+i;$$(".slot:not(.ok)").forEach(s=>s.classList.add("hint"))};t.appendChild(b)});
+ $$("#kit .slot").forEach(s=>{const f=()=>{if(sel!==null)put(s,sel)};s.onclick=f;s.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();f()}};s.ondragover=e=>e.preventDefault();s.ondrop=e=>{e.preventDefault();put(s,e.dataTransfer.getData("t"))}})}
+function put(s,k){const p=M[cm].parts[+k];if(!p)return;if(s.dataset.k===k){s.classList.add("ok");s.classList.remove("hint");s.querySelector(".lb").textContent=p[0].split(" ").slice(0,2).join(" ");$(`.part[data-k="${k}"]`).classList.add("gone");sel=null;placed++;say(p[3],"hop");if(placed===4)setTimeout(()=>go("game"),1400)}else say("Not quite. Think about what that part does and where it would sit.","alert")}
+// challenges: one different mechanic per mission
+const gameDone=()=>{if(G.stop)G.stop();G.stop=null;go("vault")};
+function win(gm,msg){gm.innerHTML=`<div class="note" style="text-align:left;border-style:solid"><b>Challenge complete.</b> ${msg}</div><button class="btn" id="gc2" style="margin-top:12px">Continue to the vault</button>`;$("#gc2").onclick=gameDone;say("Challenge complete.","hop")}
+function lose(gm,msg,again){tries++;gm.insertAdjacentHTML("beforeend",`<div class="note" style="margin-top:10px">${msg}</div><button class="btn" id="rt" style="margin-top:10px">Try again</button>`);$("#rt").onclick=again;say("No problem. Go again.","alert")}
+const CV='style="width:100%;border:1px solid var(--line);border-radius:14px;background:color-mix(in srgb,var(--bg) 70%,transparent)"';
+const GM={
+orb:{t:"Find the belts",i:"Slide the satellite along its orbit and watch the Geiger counter. Log three readings: low, middle and high.",s:"Explorer 1’s counter did something strange up high. Slide up and see.",run(gm){gm.innerHTML=`<canvas id="gc" width="560" height="230" ${CV}></canvas><input id="sl" type="range" min="0" max="100" value="0" aria-label="Orbit position" style="width:100%"><div style="display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap"><div>Counter: <b id="cn">0</b> per second</div><button class="btn" id="lg">Log reading</button></div><div id="ll" class="dim"></div>`;
+ const c=$("#gc"),x=c.getContext("2d"),rp=90,e=.14,ox=250,oy=150,logs=[];let u=0;const rr=th=>rp*(1+e)/(1+e*Math.cos(th)),alt=th=>rr(th)*6736/90-6371,cnt=a=>a<900?30:a<2000?30+(a-900)/1100*170:0;
+ const draw=()=>{x.clearRect(0,0,560,230);x.fillStyle="#2f6fae";x.beginPath();x.arc(ox,oy,85,0,7);x.fill();x.lineWidth=14;x.strokeStyle="rgba(224,164,88,.28)";x.beginPath();x.arc(ox,oy,104,Math.PI,0);x.stroke();x.lineWidth=10;x.strokeStyle="rgba(201,99,58,.25)";x.beginPath();x.arc(ox,oy,119,Math.PI,0);x.stroke();x.strokeStyle="rgba(255,255,255,.25)";x.lineWidth=1;x.beginPath();x.ellipse(ox-(rp*(1+e)/(1-e*e))*e,oy,rp*(1+e)/(1-e*e),rp*(1+e)/Math.sqrt(1-e*e),0,0,7);x.stroke();
+  const th=u*Math.PI,r=rr(th),px=ox+r*Math.cos(th),py=oy-r*Math.sin(th);x.fillStyle="#fff";x.fillRect(px-4,py-4,8,8);x.fillStyle="#ece6d6";x.font="12px Inter,sans-serif";x.fillText("gold band: strong radiation",340,40);x.fillText("red band: counter overloaded",340,58);const a=alt(th),n=cnt(a);$("#cn").textContent=Math.round(n);return[a,n]};
+ $("#sl").oninput=e=>{u=e.target.value/100;const[a,n]=draw();if(n===0&&a>2000)say("Zero?! The counter isn’t broken. It’s overloaded.")};draw();
+ $("#lg").onclick=()=>{const[a,n]=draw();logs.push([Math.round(a),Math.round(n)]);$("#ll").innerHTML=logs.map((l,i)=>`Reading ${i+1}: ${l[0]} km up, ${l[1]} counts per second`).join("<br>");beep();
+  if(logs.length>=3){if(logs.some(l=>l[1]>=100)&&logs.some(l=>l[1]===0))win(gm,"Counts climbed, then dropped to zero near the top. NASA’s account: the counter was overwhelmed by radiation trapped by Earth’s magnetic field. That discovery became the Van Allen belts. (Simplified model: the numbers are game values.)");else say("Not enough variety. Try a low, a middle and a high reading.","alert")}}}},
+moon:{t:"Soft landing",i:"Hold the button to fire the engine. Land slower than 3 m/s. Gravity pulls you down all the time.",s:"Don’t fire too early, you’ll run out of fuel.",run(gm){gm.innerHTML=`<canvas id="gc" width="560" height="330" ${CV}></canvas><button class="btn" id="fire" style="width:100%;padding:1.1rem;touch-action:none">Hold to fire engine (or hold Space)</button>`;
+ const c=$("#gc"),x=c.getContext("2d");let y=0,v=0,fuel=80,f=false,on=true,t0=performance.now(),gl=0;const H0=120,kd=e=>{if(e.code==="Space"){e.preventDefault();f=true}},ku=e=>{if(e.code==="Space")f=false},b=$("#fire");
+ b.onpointerdown=()=>f=true;b.onpointerup=b.onpointerleave=()=>f=false;addEventListener("keydown",kd);addEventListener("keyup",ku);G.stop=()=>{on=false;removeEventListener("keydown",kd);removeEventListener("keyup",ku)};
+ function step(now){if(!on)return;const dt=Math.min(.05,(now-t0)/1000);t0=now;const th=f&&fuel>0?4:0;if(th)fuel=Math.max(0,fuel-9*dt);v+=(1.62-th)*dt;y+=v*dt;const alt=Math.max(0,H0-y);
+  x.clearRect(0,0,560,330);x.fillStyle="#2d3b40";x.fillRect(0,300,560,30);const py=20+(y/H0)*262;x.fillStyle="#ece6d6";x.fillRect(262,py,36,22);x.fillRect(256,py+22,8,10);x.fillRect(296,py+22,8,10);if(th){x.fillStyle="#e0a458";x.beginPath();x.moveTo(270,py+22);x.lineTo(280,py+22+22+Math.random()*10);x.lineTo(290,py+22);x.fill()}
+  x.fillStyle="#ece6d6";x.font="14px Inter,sans-serif";x.fillText("Height "+alt.toFixed(0)+" m",14,24);x.fillStyle=v>6?"#c9633a":v>3?"#e0a458":"#6d8";x.fillText("Speed "+v.toFixed(1)+" m/s",14,44);x.fillStyle="#ece6d6";x.fillText("Fuel",14,64);x.strokeStyle="#ece6d6";x.strokeRect(50,52,100,12);x.fillRect(50,52,fuel*1.25,12);
+  if(alt<14&&!gl){gl=1;say("Reflective rocks are confusing the radar! Stay calm.","alert")}
+  if(alt<=0){on=false;G.stop();if(v<=3)win(gm,"Soft touchdown. The real Surveyor 3 had radar trouble, bounced twice, and still worked.");else if(v<=6)win(gm,"A bounce, just like the real Surveyor 3, which bounced twice before it settled. Landing accepted.");else lose(gm,`Too fast: ${v.toFixed(1)} m/s. Fire earlier and in longer bursts. (Simplified model.)`,()=>{gm.innerHTML="";GM.moon.run(gm)});return}
+  requestAnimationFrame(step)}requestAnimationFrame(step)}},
+mars:{t:"Survive the storm",i:"Eight sols. Sunlight is forecast in the bars. Pick what the rover does each sol and never let the battery hit zero.",s:"When the sky goes dark, sleeping saves power.",run(gm){const SUNL=[90,75,40,15,5,5,25,70];let sol=0,bat=30,sci=0;
+ const draw=()=>{gm.innerHTML=`<div>Sol ${sol+1} of 8. Science points: ${sci}</div><div style="display:flex;gap:4px;align-items:flex-end;height:74px;margin:8px 0">${SUNL.map((s,i)=>`<div title="Sunlight ${s}%" style="flex:1;height:${s*.7+4}px;background:var(--ac);opacity:${i===sol?1:i<sol?.2:.5};border-radius:4px"></div>`).join("")}</div><small class="dim">Forecast sunlight. The tall bar is today.</small><div style="margin-top:8px">Battery: <b>${Math.round(bat)}</b></div><div style="height:14px;border:1px solid var(--line);border-radius:8px"><div style="width:${Math.max(0,bat)}%;height:100%;background:${bat<20?"#c9633a":"var(--ac)"};border-radius:8px"></div></div><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px"><button class="btn" data-a="drive">Drive (uses 22)</button><button class="btn" data-a="study">Study a rock (uses 10)</button><button class="btn" data-a="sleep">Sleep (uses 0)</button></div><p class="dim">The heater always uses 10. Sunlight adds power. Game values.</p>`;$$("#gm [data-a]").forEach(b=>b.onclick=()=>act(b.dataset.a))};
+ const act=a=>{sci+=a==="drive"?2:a==="study"?1:0;bat=Math.min(100,bat+SUNL[sol]*.4-10-{drive:22,study:10,sleep:0}[a]);if(bat<=0){gm.innerHTML=`<p>The battery hit zero on sol ${sol+1}. The rover went dark.</p>`;lose(gm,"Hint: in the dark days, do less and sleep more.",()=>GM.mars.run(gm));return}sol++;if(sol>=8)win(gm,"You got through by sleeping while the sky was dark. Opportunity’s real storm lasted about three months, and its solar panels could not recharge it.");else draw()};draw()}},
+ast:{t:"Survey Eros",i:"Eros is spinning. Tap the three glowing spots to image them before the timer ends.",s:"Quick taps. NEAR had only a limited time near each spot.",run(gm){gm.innerHTML=`<canvas id="gc" width="560" height="320" ${CV}></canvas><div id="gl" class="dim">Imaged: 0 of 3</div>`;const c=$("#gc"),x=c.getContext("2d"),T=[[-.65,.05],[.2,-.4],[.55,.3]],got=[0,0,0];let on=true,t0=performance.now(),left=30;
+ G.stop=()=>on=false;const pos=(i,t)=>{const a=t*.5,tx=T[i][0]*190,ty=T[i][1]*70;return[280+tx*Math.cos(a)-ty*Math.sin(a),160+tx*Math.sin(a)+ty*Math.cos(a)]};
+ c.onpointerdown=e=>{const r=c.getBoundingClientRect(),px=(e.clientX-r.left)*560/r.width,py=(e.clientY-r.top)*320/r.height,t=(performance.now()-t0)/1000;T.forEach((_,i)=>{const[tx,ty]=pos(i,t);if(!got[i]&&Math.hypot(px-tx,py-ty)<26){got[i]=1;beep();$("#gl").textContent="Imaged: "+got.filter(Boolean).length+" of 3"}});if(got.every(Boolean)){on=false;win(gm,"All three imaged. NEAR spent a year orbiting Eros and mapping it before it touched down on Feb 12, 2001. (Simplified model.)")}};
+ (function step(now){if(!on)return;const t=(now-t0)/1000;left=30-t;x.clearRect(0,0,560,320);x.save();x.translate(280,160);x.rotate(t*.5);x.beginPath();for(let i=0;i<=60;i++){const th=i/60*6.283,j=1+.07*Math.sin(3*th+1);x.lineTo(Math.cos(th)*190*j,Math.sin(th)*70*j)}x.fillStyle="#8a7a62";x.fill();x.restore();
+  T.forEach((_,i)=>{const[tx,ty]=pos(i,t);x.strokeStyle=got[i]?"#6d8":"#e0a458";x.lineWidth=2;x.beginPath();x.arc(tx,ty,got[i]?10:16+Math.sin(t*6)*3,0,7);x.stroke()});x.fillStyle="#ece6d6";x.font="14px Inter,sans-serif";x.fillText("Time "+Math.max(0,left).toFixed(0)+" s",14,24);
+  if(left<=0){on=false;lose(gm,"Time’s up. Eros keeps spinning. Try again.",()=>GM.ast.run(gm));return}requestAnimationFrame(step)})(performance.now())}},
+deep:{t:"Keep the signal alive",i:"Power fades over the years. Switch instruments off so total use stays under the power available. The transmitter must stay on.",s:"Every year the RTG gives less power. Choose what to keep.",run(gm){const ST=[["1973: Jupiter flyby",100],["1983: past Neptune’s orbit",80],["1997: routine contact ends",60],["2002: last telemetry",45],["2003: last signal",28]],SY=[["Transmitter",20],["Imager",35],["Particle detector",25],["Magnetometer",20]];let st=0,on=[1,1,1,1];
+ const draw=()=>{const used=SY.reduce((n,s,i)=>n+(on[i]?s[1]:0),0),pw=ST[st][1],ok=used<=pw;gm.innerHTML=`<div><b>${ST[st][0]}</b></div><div>Power available: <b>${pw}</b>. In use: <b style="color:${ok?"var(--ink)":"#c9633a"}">${used}</b></div><div style="display:grid;gap:8px;margin:12px 0">${SY.map((s,i)=>`<button class="btn" data-i="${i}" style="text-align:left;${on[i]?"":"opacity:.45"}">${s[0]}: ${on[i]?"ON":"off"} (uses ${s[1]})${i?"":" · always on"}</button>`).join("")}</div><button class="btn" id="nx2" ${ok?"":"disabled"}>${ok?(st===4?"Send the last signal":"Next year"):"Over budget"}</button><p class="dim">Game values. Real Pioneer 10 ran on RTGs whose power decayed.</p>`;
+  $$("#gm [data-i]").forEach(b=>b.onclick=()=>{const i=+b.dataset.i;if(!i){say("The transmitter has to stay on.","alert");return}on[i]=on[i]?0:1;draw()});$("#nx2").onclick=()=>{if(st===4){win(gm,"Your signal survived, but only the transmitter fit at the end. NASA says the real RTG power decayed until it could no longer run the transmitter.");return}st++;draw()}};draw()}}};
+function startGame(){const g=GM[cm],gm=$("#gm");if(G.stop)G.stop();gm.innerHTML="";$("#gt").textContent=g.t;$("#gi").textContent=g.i;say(g.s);g.run(gm);$("#gs").onclick=gameDone}
+// vault
+const plate=(k,i)=>`<svg viewBox="0 0 230 100" width="100%" height="100" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="230" height="100" style="fill:color-mix(in srgb,var(--bg) 75%,var(--ac))"/>${[...Array(18)].map((_,j)=>`<circle cx="${rnd(j+i*7)*230}" cy="${rnd(j+3+i*5)*100}" r="${.5+rnd(j)*1.2}" fill="#fff" opacity=".6"/>`).join("")}<circle cx="${60+i*35}" cy="${95-i*6}" r="${46-i*5}" fill="${["#2a5f8f","#c9633a","#9aa7a8","#d9a95b"][i%4]}" opacity=".85"/><path d="M0 ${70-i*6} Q115 ${20+i*10} 230 ${55+i*5}" stroke="var(--ac)" fill="none" stroke-dasharray="4 4"/><g transform="translate(150 ${22+i*4}) scale(.38)">${M[k].hero}</g></svg>`;
+function buildVault(){const g=$("#vg");g.innerHTML="";const has=S.vt[cm]||(S.vt[cm]=[]);M[cm].v.forEach((v,i)=>{const c=document.createElement("div");c.className="card"+(has.includes(i)?"":" lock");c.tabIndex=0;c.setAttribute("role","button");c.innerHTML=`<div class="ph" style="padding:0">${plate(cm,i)}</div><div class="tx"><h3>${v[0]}</h3><p>${v[1]}</p><small class="dim">Source: ${v[2]}</small><br><small class="dim">Illustration, not a NASA photo.</small> <a href="https://images.nasa.gov/search?q=${encodeURIComponent(M[cm].name+" "+v[0])}" target="_blank" rel="noopener">Find the real NASA photo</a></div>`;
+ const f=()=>{c.classList.remove("lock");if(!has.includes(i))has.push(i);save();say(has.length===4?"Archive restored. Now the ending.":"Restored: "+v[0]+".","hop")};c.onclick=f;c.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();f()}};c.querySelector("a").onclick=e=>e.stopPropagation();g.appendChild(c)})}
+function renderSig(){$("#sg").innerHTML=M[cm].sg.map(x=>`<div class="${x[0]==="q"?"q":""}"><span class="tag${x[0]==="q"?" story":""}">${x[0]==="q"?"Not shown":"Real"}</span><b>${x[1]}</b>${x[2]}</div>`).join("");$("#sn").textContent=M[cm].sn}
+function debrief(){const m=M[cm];S.done[cm]=1;save();$("#et").textContent=S.name+", "+m.name+" preserved";$("#es").textContent=`Challenge: ${tries?"passed after "+tries+(tries>1?" retries":" retry"):"passed first try"}. Evidence restored: ${(S.vt[cm]||[]).length}/4. ${m.end}`;const b=$("#bg");b.innerHTML="";[["Reconstructor",placed===4],["Archivist",(S.vt[cm]||[]).length===4],["Clean run",tries===0]].forEach(x=>{const e=document.createElement("span");e.className="tag";e.style.opacity=x[1]?1:.35;e.textContent=x[0];b.appendChild(e)});
+ $("#dn").innerHTML='<span class="tag">Real</span> '+m.real+'<br><span class="tag story">Story</span> The Temporal Decay Wave, the Corps, and TOCK are fiction. TOCK is a scripted character, not a spacecraft mind.';$("#ps").textContent=dn()+" of 5 missions archived.";say("That’s the whole "+m.name+" file.","hop")}
+$("#b9").onclick=()=>go("hub");
+</script>
+</body>
+</html>

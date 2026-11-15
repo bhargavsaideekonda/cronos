@@ -1,0 +1,137 @@
+[
+  {
+    "id": "s3-launch",
+    "text": "Surveyor 3 launched on April 17, 1967.",
+    "source": "NASA Science, Surveyor 3",
+    "source_url": "https://science.nasa.gov/mission/surveyor-3/",
+    "status": "verified",
+    "checked": "2026-11-15"
+  },
+  {
+    "id": "s3-landing",
+    "text": "Surveyor 3 landed on the Moon on April 20, 1967, in the southeastern region of Oceanus Procellarum.",
+    "source": "NASA Science, Surveyor 3",
+    "source_url": "https://science.nasa.gov/mission/surveyor-3/",
+    "status": "verified",
+    "checked": "2026-11-15"
+  },
+  {
+    "id": "s3-bounce",
+    "text": "Highly reflective rocks confused the descent radar and the main engine failed to cut off, so the lander bounced twice before it settled.",
+    "source": "NASA Science, Surveyor 3",
+    "source_url": "https://science.nasa.gov/mission/surveyor-3/",
+    "status": "verified",
+    "checked": "2026-11-15"
+  },
+  {
+    "id": "s3-sampler",
+    "text": "Its surface sampler could reach up to 1.5 m from the lander and dig up to 18 cm deep.",
+    "source": "NASA Science, Surveyor 3",
+    "source_url": "https://science.nasa.gov/mission/surveyor-3/",
+    "status": "verified",
+    "checked": "2026-11-15"
+  },
+  {
+    "id": "s3-soil",
+    "text": "Tests found the soil had a consistency similar to wet sand and was solid enough to support an Apollo Lunar Module.",
+    "source": "NASA Science, Surveyor 3",
+    "source_url": "https://science.nasa.gov/mission/surveyor-3/",
+    "status": "verified",
+    "checked": "2026-11-15"
+  },
+  {
+    "id": "s3-pictures",
+    "text": "Its TV camera returned 6,326 pictures.",
+    "source": "NASA NSSDCA, Surveyor 3",
+    "source_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1967-035A",
+    "status": "verified",
+    "checked": "2026-11-15"
+  },
+  {
+    "id": "s3-eclipse",
+    "text": "Its camera recorded images of an eclipse of the Sun by the Earth.",
+    "source": "NASA NSSDCA, Surveyor 3",
+    "source_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1967-035A",
+    "status": "verified",
+    "checked": "2026-11-15"
+  },
+  {
+    "id": "s3-eclipse-date",
+    "text": "The eclipse images were taken on April 24, 1967.",
+    "source": "none found",
+    "source_url": "https://science.nasa.gov/mission/surveyor-3/",
+    "status": "unverified",
+    "checked": "2026-11-15",
+    "note": "Date appears on neither NASA page checked."
+  },
+  {
+    "id": "s3-power",
+    "text": "Solar cells generated its power, stored in rechargeable batteries. It failed to come back to life after the two-week lunar night.",
+    "source": "NASA NSSDCA, Surveyor 3",
+    "source_url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1967-035A",
+    "status": "verified",
+    "checked": "2026-11-15"
+  },
+  {
+    "id": "s3-last-contact",
+    "text": "Last contact with Surveyor 3 was on May 4, 1967.",
+    "source": "NASA Science, Surveyor 3",
+    "source_url": "https://science.nasa.gov/mission/surveyor-3/",
+    "status": "conflicting",
+    "checked": "2026-11-15",
+    "safe_text": "NASA gives May 4, 1967 as the last contact. Some pages say May 3, the day the Sun set on the lander.",
+    "note": "NSSDCA: last data 04 May 1967 00:04 UT; operated until after local sunset on 03 May."
+  },
+  {
+    "id": "s3-apollo12",
+    "text": "Apollo 12 astronauts visited Surveyor 3 on November 20, 1969.",
+    "source": "NASA Science and NSSDCA",
+    "source_url": "https://science.nasa.gov/mission/surveyor-3/",
+    "status": "conflicting",
+    "checked": "2026-11-15",
+    "safe_text": "In November 1969, Apollo 12 astronauts Charles Conrad Jr. and Alan Bean walked to Surveyor 3 and brought parts home, including its TV camera. NASA pages differ on the exact date.",
+    "note": "Science page: EVA Nov 19, scoop and camera. NSSDCA: 20 November, about 10 kg of parts including the TV camera."
+  },
+  {
+    "id": "s3-mass",
+    "text": "Spacecraft mass.",
+    "source": "NASA Science and NSSDCA",
+    "source_url": "https://science.nasa.gov/mission/surveyor-3/",
+    "status": "conflicting",
+    "checked": "2026-11-15",
+    "note": "997.9 kg (Science) vs 1026 kg at launch, 296 kg at landing (NSSDCA). No safe wording, so never shown."
+  },
+  {
+    "id": "s3-official-end",
+    "text": "Official end of mission date.",
+    "source": "none found",
+    "source_url": "https://science.nasa.gov/mission/surveyor-3/",
+    "status": "unverified",
+    "checked": "2026-11-15",
+    "note": "No verified date found."
+  },
+  {
+    "id": "s3-photo-crater",
+    "text": "Apollo 12 photographed Surveyor 3 during its second moonwalk.",
+    "source": "NASA Image Library, AS12-48-7121",
+    "source_url": "https://images.nasa.gov/details/as12-48-7121",
+    "status": "verified",
+    "checked": "2026-11-15"
+  },
+  {
+    "id": "s3-photo-scoop",
+    "text": "An Apollo 12 close-up shows a Surveyor 3 footpad and the surface sampler with its scoop.",
+    "source": "NASA Image Library, AS12-48-7110",
+    "source_url": "https://images.nasa.gov/details/as12-48-7110",
+    "status": "verified",
+    "checked": "2026-11-15"
+  },
+  {
+    "id": "s3-photo-two",
+    "text": "One Apollo 12 photograph shows two spacecraft on the Moon: Surveyor 3 in the foreground and the Lunar Module in the background.",
+    "source": "NASA Image Library, AS12-48-7134",
+    "source_url": "https://images.nasa.gov/details/AS12-48-7134",
+    "status": "verified",
+    "checked": "2026-11-15"
+  }
+]

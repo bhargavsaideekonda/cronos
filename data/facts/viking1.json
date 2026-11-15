@@ -1,0 +1,45 @@
+[
+  {
+    "id": "vk-landing",
+    "text": "Viking 1 lander touched down on Mars in Chryse Planitia on July 20, 1976.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/viking-1/",
+    "status": "verified"
+  },
+  {
+    "id": "vk-scoop",
+    "text": "Its surface sampler arm scooped the first sample of Martian soil on July 28, 1976.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/viking-1/",
+    "status": "verified"
+  },
+  {
+    "id": "vk-design",
+    "text": "Designed for a primary mission of 90 days, Viking 1 operated on Mars for over six years.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/viking-1/",
+    "status": "verified"
+  },
+  {
+    "id": "vk-last-contact",
+    "text": "Final transmission Nov 11, 1982 per NASA (some sources say Nov 13).",
+    "safe_text": "NASA records the final transmission on November 11, 1982 (some sources cite November 13).",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/viking-1/",
+    "status": "conflicting"
+  },
+  {
+    "id": "vk-power",
+    "text": "Viking 1 was powered continuously through Martian nights and dust by two SNAP-19 radioisotope thermoelectric generators.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/viking-1/",
+    "status": "verified"
+  },
+  {
+    "id": "vk-entry",
+    "text": "The lander descended through the thin Martian atmosphere using an aeroshell heat shield, a parachute, and terminal descent thrusters.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/viking-1/",
+    "status": "verified"
+  }
+]

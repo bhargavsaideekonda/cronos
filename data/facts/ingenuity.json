@@ -1,0 +1,44 @@
+[
+  {
+    "id": "ing-flight1",
+    "text": "Ingenuity achieved the first powered controlled flight on another planet on April 19, 2021, hovering for 39.1 seconds at 3 meters altitude.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/mars-2020-perseverance/ingenuity-mars-helicopter/",
+    "status": "verified"
+  },
+  {
+    "id": "ing-flights",
+    "text": "Originally planned for up to 5 experimental test flights, Ingenuity completed 72 flights across almost 3 years on Mars.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/mars-2020-perseverance/ingenuity-mars-helicopter/",
+    "status": "verified"
+  },
+  {
+    "id": "ing-last-flight",
+    "text": "Ingenuity made its final flight, Flight 72, on January 18, 2024.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/mars-2020-perseverance/ingenuity-mars-helicopter/",
+    "status": "verified"
+  },
+  {
+    "id": "ing-damage",
+    "text": "During its final landing on January 18, 2024, one or more rotor blades sustained damage, rendering the helicopter unable to fly.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/mars-2020-perseverance/ingenuity-mars-helicopter/",
+    "status": "verified"
+  },
+  {
+    "id": "ing-end",
+    "text": "NASA officially concluded the Ingenuity helicopter mission on January 25, 2024.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/mars-2020-perseverance/ingenuity-mars-helicopter/",
+    "status": "verified"
+  },
+  {
+    "id": "ing-thinair",
+    "text": "Because Mars' atmosphere is less than 1% as dense as Earth's, its twin rotors spun at over 2,400 RPM to generate lift.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/mars-2020-perseverance/ingenuity-mars-helicopter/",
+    "status": "verified"
+  }
+]

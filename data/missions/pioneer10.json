@@ -1,0 +1,122 @@
+{
+  "id": "pioneer10",
+  "order": 10,
+  "era": "deep",
+  "scene": "pioneer10",
+  "name": "Pioneer 10",
+  "built": true,
+  "intro_fact": "p10-launch",
+  "hotspots": [
+    {
+      "id": "dish",
+      "label": "Inspect the 2.74-meter dish",
+      "x": 48,
+      "y": 45,
+      "fact": "p10-last-signal"
+    },
+    {
+      "id": "craft",
+      "label": "Examine the RTG power booms",
+      "x": 30,
+      "y": 65,
+      "fact": "p10-rtg"
+    },
+    {
+      "id": "space",
+      "label": "Look out into deep interstellar space",
+      "x": 75,
+      "y": 30,
+      "fact": "p10-neptune"
+    }
+  ],
+  "parts": [
+    {
+      "id": "dish",
+      "name": "Big parabolic dish",
+      "role": "2.74-meter high-gain parabolic antenna beaming weak signals across billions of kilometers",
+      "snap": "High-gain dish mounted to face Earth.",
+      "fact": "p10-last-signal"
+    },
+    {
+      "id": "hub",
+      "name": "Central instrument hub",
+      "role": "Hexagonal equipment compartment housing scientific electronics and transmitters",
+      "snap": "Central electronics bus secured."
+    },
+    {
+      "id": "rtg",
+      "name": "Two RTG booms",
+      "role": "Snap-19 nuclear thermoelectric generators mounted on deployable trusses",
+      "snap": "RTG booms deployed to isolate radiation from sensors.",
+      "fact": "p10-rtg"
+    },
+    {
+      "id": "boom",
+      "name": "Magnetometer boom",
+      "role": "Extended 5.8-meter boom holding helium vector magnetometer sensors",
+      "snap": "Magnetometer boom deployed outward."
+    },
+    {
+      "id": "photopol",
+      "name": "Photopolarimeter",
+      "role": "Imaging photopolarimeter that took the first close-up pictures of Jupiter",
+      "snap": "Photopolarimeter calibrated for gas giant imagery.",
+      "fact": "p10-jupiter"
+    },
+    {
+      "id": "plaque",
+      "name": "Gold pictorial plaque",
+      "role": "Gold-anodized aluminum plaque showing human figures and Earth's celestial coordinates",
+      "snap": "Pioneer plaque attached for interstellar wanderers."
+    }
+  ],
+  "challenge": {
+    "id": "power-budget",
+    "title": "Keep the signal alive",
+    "intro": "Electrical output from the RTG decays over decades. Power down non-essential instruments as the years advance, keeping the transmitter online until the final signal.",
+    "hint": "The transmitter must stay powered. Toggle instruments off until power usage fits within the year's available wattage."
+  },
+  "vault": [
+    {
+      "title": "Jupiter flyby",
+      "fact": "p10-jupiter",
+      "image": null
+    },
+    {
+      "title": "Beyond Neptune",
+      "fact": "p10-neptune",
+      "image": null
+    },
+    {
+      "title": "End of routine contact",
+      "fact": "p10-routine",
+      "image": null
+    },
+    {
+      "title": "The last weak signal",
+      "fact": "p10-last-signal",
+      "image": null
+    }
+  ],
+  "signal": [
+    {
+      "kind": "Last contact",
+      "fact": "p10-last-signal"
+    },
+    {
+      "kind": "Loss of power",
+      "fact": "p10-rtg"
+    },
+    {
+      "kind": "Official end of mission",
+      "fact": "p10-routine"
+    }
+  ],
+  "signal_note": "A final whisper was received on January 23, 2003 from 12 billion kilometers away, after which power fell below transmission levels.",
+  "ending": "Pioneer 10 is drifting toward the constellation Taurus, carrying humanity's message into interstellar space.",
+  "debrief_facts": [
+    "p10-launch",
+    "p10-jupiter",
+    "p10-neptune"
+  ]
+}

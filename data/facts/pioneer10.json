@@ -1,0 +1,45 @@
+[
+  {
+    "id": "p10-launch",
+    "text": "Pioneer 10 launched on March 2, 1972 on a trajectory toward Jupiter and the outer solar system.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/pioneer-10/",
+    "status": "verified"
+  },
+  {
+    "id": "p10-jupiter",
+    "text": "Pioneer 10 flew past Jupiter in December 1973, obtaining the first close-up images of Jupiter and its Great Red Spot.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/pioneer-10/",
+    "status": "verified"
+  },
+  {
+    "id": "p10-neptune",
+    "text": "In 1983, Pioneer 10 crossed the orbit of Neptune, then the most distant known planet from the Sun.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/pioneer-10/",
+    "status": "verified"
+  },
+  {
+    "id": "p10-routine",
+    "text": "NASA's routine science operations with Pioneer 10 ended on March 31, 1997 due to budgetary and power constraints.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/pioneer-10/",
+    "status": "verified"
+  },
+  {
+    "id": "p10-last-signal",
+    "text": "Last signal Jan 23, 2003 per NASA Science (a 2003 release says Jan 22).",
+    "safe_text": "NASA Science records the last signal received on January 23, 2003 (a 2003 press release cited January 22).",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/pioneer-10/",
+    "status": "conflicting"
+  },
+  {
+    "id": "p10-rtg",
+    "text": "Pioneer 10 was powered by SNAP-19 radioisotope thermoelectric generators, whose electrical output gradually decayed below transmitter thresholds.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/pioneer-10/",
+    "status": "verified"
+  }
+]

@@ -1,0 +1,120 @@
+{
+  "id": "ingenuity",
+  "order": 7,
+  "era": "mars",
+  "scene": "ingenuity",
+  "name": "Ingenuity",
+  "built": true,
+  "intro_fact": "ing-flight1",
+  "hotspots": [
+    {
+      "id": "rotors",
+      "label": "Inspect counter-rotating blades",
+      "x": 50,
+      "y": 30,
+      "fact": "ing-thinair"
+    },
+    {
+      "id": "craft",
+      "label": "Examine the avionics fuselage",
+      "x": 50,
+      "y": 60,
+      "fact": "ing-flight1"
+    },
+    {
+      "id": "field",
+      "label": "Review the 72 flight logs",
+      "x": 75,
+      "y": 70,
+      "fact": "ing-flights"
+    }
+  ],
+  "parts": [
+    {
+      "id": "rotors",
+      "name": "Twin rotors",
+      "role": "Dual counter-rotating carbon fiber blades spinning at 2,400 RPM",
+      "snap": "Twin rotors balanced and mounted.",
+      "fact": "ing-thinair"
+    },
+    {
+      "id": "solar",
+      "name": "Solar panel",
+      "role": "Small solar array mounted above the rotor mast to recharge Li-ion cells",
+      "snap": "Masthead solar array wired in."
+    },
+    {
+      "id": "fuselage",
+      "name": "Fuselage",
+      "role": "Insulated cube housing lithium-ion batteries, computer, and inertial sensors",
+      "snap": "Avionics fuselage sealed."
+    },
+    {
+      "id": "legs",
+      "name": "Landing legs",
+      "role": "Four flexible composite carbon-fiber legs to absorb landing shock",
+      "snap": "Four composite landing struts in position."
+    },
+    {
+      "id": "camera",
+      "name": "Downward camera",
+      "role": "Black-and-white downward navigation camera tracking surface visual features",
+      "snap": "Downward optical navigation camera calibrated."
+    },
+    {
+      "id": "antenna",
+      "name": "Antenna",
+      "role": "Vertical whip antenna communicating with the Perseverance rover",
+      "snap": "Rover communication link antenna connected."
+    }
+  ],
+  "challenge": {
+    "id": "rotor-hover",
+    "title": "Hover at 3 meters",
+    "intro": "Spin up the dual rotors in the razor-thin Martian atmosphere. Throttle the rotor speed to lift off and maintain a steady 3-meter hover for 30 seconds.",
+    "hint": "In Mars' 1% atmosphere, rotors need high RPM to bite the air. Keep throttle balanced around the target line."
+  },
+  "vault": [
+    {
+      "title": "First extraterrestrial flight",
+      "fact": "ing-flight1",
+      "image": null
+    },
+    {
+      "title": "72 aerial sorties",
+      "fact": "ing-flights",
+      "image": null
+    },
+    {
+      "title": "Flight 72",
+      "fact": "ing-last-flight",
+      "image": null
+    },
+    {
+      "title": "Rotor damage & retirement",
+      "fact": "ing-end",
+      "image": null
+    }
+  ],
+  "signal": [
+    {
+      "kind": "Last contact",
+      "fact": "ing-last-flight"
+    },
+    {
+      "kind": "Loss of power",
+      "fact": "ing-damage"
+    },
+    {
+      "kind": "Official end of mission",
+      "fact": "ing-end"
+    }
+  ],
+  "signal_note": "A hard landing in sandy ripple terrain on flight 72 fractured a blade tip, ending its flight career.",
+  "ending": "Ingenuity proved that powered aerial flight is possible in the thin atmosphere of another world.",
+  "debrief_facts": [
+    "ing-flight1",
+    "ing-flights",
+    "ing-end"
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "id": "lrv",
+  "order": 4,
+  "era": "moon",
+  "scene": "lrv",
+  "name": "Lunar Roving Vehicle",
+  "built": true,
+  "intro_fact": "lrv-first",
+  "hotspots": [
+    {
+      "id": "craft",
+      "label": "Inspect the rover frame",
+      "x": 48,
+      "y": 62,
+      "fact": "lrv-power"
+    },
+    {
+      "id": "wheels",
+      "label": "Examine wire-mesh wheels",
+      "x": 30,
+      "y": 78,
+      "fact": "lrv-speed"
+    },
+    {
+      "id": "horizon",
+      "label": "Calculate the walk-back horizon",
+      "x": 75,
+      "y": 40,
+      "fact": "lrv-walkback"
+    }
+  ],
+  "parts": [
+    {
+      "id": "chassis",
+      "name": "Chassis",
+      "role": "Three-piece hinged aluminum chassis folded during flight",
+      "snap": "Chassis unfolded and locked."
+    },
+    {
+      "id": "wheels",
+      "name": "Wire-mesh wheels",
+      "role": "Zinc-coated woven wire with titanium chevron treads",
+      "snap": "Wire wheels mounted. No air to go flat.",
+      "fact": "lrv-speed"
+    },
+    {
+      "id": "seats",
+      "name": "Seats",
+      "role": "Foldable tubular aluminum seats designed for pressurized suits",
+      "snap": "Astronaut seats clicked in."
+    },
+    {
+      "id": "batteries",
+      "name": "Batteries",
+      "role": "Two 36-volt silver-zinc non-rechargeable power sources",
+      "snap": "Silver-zinc batteries connected.",
+      "fact": "lrv-power"
+    },
+    {
+      "id": "antenna",
+      "name": "Mesh antenna",
+      "role": "High-gain umbrella mesh dish for color TV broadcast",
+      "snap": "High-gain dish aimed toward Earth."
+    },
+    {
+      "id": "control",
+      "name": "Control stick",
+      "role": "T-handle hand controller operated by either astronaut",
+      "snap": "T-handle control stick operational."
+    }
+  ],
+  "challenge": {
+    "id": "walk-back",
+    "title": "Walk-back planning",
+    "intro": "Drive to sample sites across the lunar landscape, but keep an eye on life support consumables: you must never exceed walking distance back to the LM.",
+    "hint": "Check the oxygen reserve bar: driving further increases scientific yield, but walking back takes 10 minutes per kilometer."
+  },
+  "vault": [
+    {
+      "title": "Apollo 15, 16 & 17",
+      "fact": "lrv-missions",
+      "image": null
+    },
+    {
+      "title": "First drive at Hadley Rille",
+      "fact": "lrv-first",
+      "image": null
+    },
+    {
+      "title": "The Walk-Back limit",
+      "fact": "lrv-walkback",
+      "image": null
+    },
+    {
+      "title": "Parked on the Moon",
+      "fact": "lrv-left",
+      "image": null
+    }
+  ],
+  "signal": [
+    {
+      "kind": "Last contact",
+      "fact": "lrv-first"
+    },
+    {
+      "kind": "Loss of power",
+      "fact": "lrv-power"
+    },
+    {
+      "kind": "Official end of mission",
+      "fact": "lrv-left"
+    }
+  ],
+  "signal_note": "Three rovers were left behind on the Moon, their batteries long drained, standing in place.",
+  "ending": "The Lunar Roving Vehicles allowed astronauts to explore kilometers beyond their landing sites.",
+  "debrief_facts": [
+    "lrv-missions",
+    "lrv-speed",
+    "lrv-left"
+  ]
+}

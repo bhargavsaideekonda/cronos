@@ -1,0 +1,121 @@
+{
+  "id": "viking1",
+  "order": 5,
+  "era": "mars",
+  "scene": "viking1",
+  "name": "Viking 1",
+  "built": true,
+  "intro_fact": "vk-landing",
+  "hotspots": [
+    {
+      "id": "craft",
+      "label": "Inspect Viking lander body",
+      "x": 50,
+      "y": 60,
+      "fact": "vk-power"
+    },
+    {
+      "id": "soil",
+      "label": "Examine the surface trench",
+      "x": 70,
+      "y": 78,
+      "fact": "vk-scoop"
+    },
+    {
+      "id": "sky",
+      "label": "Look through the butterscotch sky",
+      "x": 60,
+      "y": 28,
+      "fact": "vk-entry"
+    }
+  ],
+  "parts": [
+    {
+      "id": "body",
+      "name": "Lander body",
+      "role": "Hexagonal aluminum and titanium bonded structural frame",
+      "snap": "Lander chassis aligned."
+    },
+    {
+      "id": "legs",
+      "name": "Landing legs",
+      "role": "Three A-frame legs fitted with crushable honeycomb shock absorbers",
+      "snap": "Three footpads secured."
+    },
+    {
+      "id": "sampler",
+      "name": "Sampler arm",
+      "role": "Retractable boom with backhoe scoop for soil collection",
+      "snap": "Surface sampler arm ready to trench.",
+      "fact": "vk-scoop"
+    },
+    {
+      "id": "dish",
+      "name": "Dish antenna",
+      "role": "S-band high-gain parabolic antenna pointing directly to Earth",
+      "snap": "High-gain dish pointed earthward."
+    },
+    {
+      "id": "rtg",
+      "name": "Radioisotope power unit",
+      "role": "Two SNAP-19 RTGs providing continuous nuclear thermoelectric power",
+      "snap": "RTGs hot. Continuous power guaranteed.",
+      "fact": "vk-power"
+    },
+    {
+      "id": "mast",
+      "name": "Camera mast",
+      "role": "Twin facsimile scanning cameras and meteorology mast",
+      "snap": "Facsimile cameras calibrated for Mars panoramas."
+    }
+  ],
+  "challenge": {
+    "id": "entry-sequence",
+    "title": "Timed entry sequence",
+    "intro": "Plunge through the Martian atmosphere. Trigger parachute deployment, release the heat shield, and ignite terminal thrusters at the exact altitude windows.",
+    "hint": "Watch the altitude gauge: trigger each step when the indicator enters its highlighted target band."
+  },
+  "vault": [
+    {
+      "title": "First touchdown on Chryse",
+      "fact": "vk-landing",
+      "image": null
+    },
+    {
+      "title": "The first Martian soil scoop",
+      "fact": "vk-scoop",
+      "image": null
+    },
+    {
+      "title": "Six years on Mars",
+      "fact": "vk-design",
+      "image": null
+    },
+    {
+      "title": "Final transmission",
+      "fact": "vk-last-contact",
+      "image": null
+    }
+  ],
+  "signal": [
+    {
+      "kind": "Last contact",
+      "fact": "vk-last-contact"
+    },
+    {
+      "kind": "Loss of power",
+      "fact": "vk-power"
+    },
+    {
+      "kind": "Official end of mission",
+      "fact": "vk-last-contact"
+    }
+  ],
+  "signal_note": "A faulty software command inadvertently pointed the antenna away from Earth in November 1982, ending 6 years of transmissions.",
+  "ending": "Viking 1 gave humanity its first clear view of the red rocks and amber skies of Mars.",
+  "debrief_facts": [
+    "vk-landing",
+    "vk-scoop",
+    "vk-design"
+  ]
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "ea-landing",
+    "text": "Apollo 11 Lunar Module Eagle touched down on the Moon at Tranquility Base on July 20, 1969 at 20:17 UTC.",
+    "source": "NASA History",
+    "source_url": "https://www.nasa.gov/mission/apollo-11/",
+    "status": "verified"
+  },
+  {
+    "id": "ea-boulders",
+    "text": "Neil Armstrong took semi-manual control during final descent to fly past a crater surrounded by large boulders.",
+    "source": "NASA History",
+    "source_url": "https://www.nasa.gov/mission/apollo-11/",
+    "status": "verified"
+  },
+  {
+    "id": "ea-surface",
+    "text": "The astronauts spent 21 hours and 36 minutes on the lunar surface, conducting a 2.5-hour moonwalk.",
+    "source": "NASA History",
+    "source_url": "https://www.nasa.gov/mission/apollo-11/",
+    "status": "verified"
+  },
+  {
+    "id": "ea-plaque",
+    "text": "The descent stage ladder bears a plaque inscribed: 'Here men from the planet Earth first set foot upon the Moon July 1969, A.D. We came in peace for all mankind.'",
+    "source": "NASA History",
+    "source_url": "https://www.nasa.gov/mission/apollo-11/",
+    "status": "verified"
+  },
+  {
+    "id": "ea-liftoff",
+    "text": "Eagle's ascent stage lifted off from the Moon on July 21, 1969, using the descent stage as a launch pad.",
+    "source": "NASA History",
+    "source_url": "https://www.nasa.gov/mission/apollo-11/",
+    "status": "verified"
+  },
+  {
+    "id": "ea-descent-stage",
+    "text": "Eagle's descent stage remains at Tranquility Base on the Moon.",
+    "source": "NASA History",
+    "source_url": "https://www.nasa.gov/mission/apollo-11/",
+    "status": "verified"
+  },
+  {
+    "id": "ea-ascent-fate",
+    "text": "Ascent-stage fate differs between sources after being jettisoned in lunar orbit.",
+    "safe_text": "The ascent stage was jettisoned after crew transfer; historical sources differ on where it eventually impacted the lunar surface.",
+    "source": "NASA History",
+    "source_url": "https://www.nasa.gov/mission/apollo-11/",
+    "status": "conflicting"
+  }
+]

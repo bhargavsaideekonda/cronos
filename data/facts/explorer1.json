@@ -1,0 +1,59 @@
+[
+  {
+    "id": "e1-launch",
+    "text": "Explorer 1 launched on January 31, 1958 (February 1 UTC) from Cape Canaveral as the first US satellite.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/explorer-1/",
+    "status": "verified"
+  },
+  {
+    "id": "e1-orbit",
+    "text": "Its oval orbit had a perigee of about 358 km and an apogee of about 2,550 km, completing a lap every 114.8 minutes.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/explorer-1/",
+    "status": "verified"
+  },
+  {
+    "id": "e1-counter",
+    "text": "It carried a cosmic-ray detector built by James Van Allen of the University of Iowa.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/explorer-1/",
+    "status": "verified"
+  },
+  {
+    "id": "e1-zero",
+    "text": "At high altitudes the counter dropped to zero counts because it was overwhelmed by intense trapped radiation.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/explorer-1/",
+    "status": "verified"
+  },
+  {
+    "id": "e1-belts",
+    "text": "Explorer 1's data led to the discovery of Earth's trapped radiation belts, now known as the Van Allen belts.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/explorer-1/",
+    "status": "verified"
+  },
+  {
+    "id": "e1-batteries",
+    "text": "Mercury batteries powered the main transmitter for 31 days and the low-power beacon for 105 days.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/explorer-1/",
+    "status": "verified"
+  },
+  {
+    "id": "e1-last-contact",
+    "text": "Last transmission May 23, 1958 per NASA Science (some pages say May 21).",
+    "safe_text": "NASA Science records the last transmission on May 23, 1958 (some accounts cite May 21).",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/explorer-1/",
+    "status": "conflicting"
+  },
+  {
+    "id": "e1-reentry",
+    "text": "Explorer 1 orbited silently until re-entering Earth's atmosphere on March 31, 1970 after more than 58,000 orbits.",
+    "source": "NASA Science",
+    "source_url": "https://science.nasa.gov/mission/explorer-1/",
+    "status": "verified"
+  }
+]

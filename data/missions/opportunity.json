@@ -1,0 +1,122 @@
+{
+  "id": "opportunity",
+  "order": 6,
+  "era": "mars",
+  "scene": "opportunity",
+  "name": "Opportunity",
+  "built": true,
+  "intro_fact": "opp-landing",
+  "hotspots": [
+    {
+      "id": "craft",
+      "label": "Inspect the solar deck",
+      "x": 50,
+      "y": 55,
+      "fact": "opp-solar"
+    },
+    {
+      "id": "blueberries",
+      "label": "Examine the hematite spherules",
+      "x": 72,
+      "y": 75,
+      "fact": "opp-blueberries"
+    },
+    {
+      "id": "sky",
+      "label": "Watch the looming dust sky",
+      "x": 60,
+      "y": 30,
+      "fact": "opp-last-contact"
+    }
+  ],
+  "parts": [
+    {
+      "id": "deck",
+      "name": "Solar deck",
+      "role": "Photovoltaic panel wings providing power when clean of dust",
+      "snap": "Solar arrays deployed across the deck.",
+      "fact": "opp-solar"
+    },
+    {
+      "id": "body",
+      "name": "Body chassis",
+      "role": "Insulated Warm Electronics Box containing batteries and onboard computer",
+      "snap": "Electronics box secured against the Martian cold."
+    },
+    {
+      "id": "wheels",
+      "name": "Wheels",
+      "role": "Six independent drive wheels on a rocker-bogie suspension",
+      "snap": "Rocker-bogie suspension engaged. 45 km ahead.",
+      "fact": "opp-duration"
+    },
+    {
+      "id": "mast",
+      "name": "Camera mast",
+      "role": "Pancam mast assembly providing 360-degree stereo vision",
+      "snap": "Panoramic mast raised."
+    },
+    {
+      "id": "arm",
+      "name": "Robotic arm",
+      "role": "Instrument deployment arm carrying a rock abrasion tool and spectrometers",
+      "snap": "Instrument arm folded and ready to inspect rocks.",
+      "fact": "opp-blueberries"
+    },
+    {
+      "id": "antenna",
+      "name": "Antenna",
+      "role": "High-gain steerable dish for direct-to-Earth communication",
+      "snap": "High-gain dish antenna ready to phone home."
+    }
+  ],
+  "challenge": {
+    "id": "dust-storm",
+    "title": "Survive the storm",
+    "intro": "An eight-sol global dust storm is approaching. Choose whether to drive, study rocks, or sleep each sol to prevent your battery from draining to zero.",
+    "hint": "When the sky goes dark, sleeping draws zero extra power and preserves the heaters."
+  },
+  "vault": [
+    {
+      "title": "Eagle Crater & Meridiani",
+      "fact": "opp-landing",
+      "image": null
+    },
+    {
+      "title": "Water on ancient Mars",
+      "fact": "opp-blueberries",
+      "image": null
+    },
+    {
+      "title": "15-year marathon",
+      "fact": "opp-duration",
+      "image": null
+    },
+    {
+      "title": "The last storm",
+      "fact": "opp-last-contact",
+      "image": null
+    }
+  ],
+  "signal": [
+    {
+      "kind": "Last contact",
+      "fact": "opp-last-contact"
+    },
+    {
+      "kind": "Loss of power",
+      "fact": "opp-solar"
+    },
+    {
+      "kind": "Official end of mission",
+      "fact": "opp-complete"
+    }
+  ],
+  "signal_note": "A massive 2018 dust storm darkened the sky over Perseverance Valley, depleting the rover's solar power.",
+  "ending": "Opportunity explored Mars for nearly 15 years, discovering definitive proof of ancient Martian water.",
+  "debrief_facts": [
+    "opp-landing",
+    "opp-blueberries",
+    "opp-duration"
+  ]
+}
